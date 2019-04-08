@@ -303,30 +303,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "app.py",
-			"settings":
-			{
-				"buffer_size": 186,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/main.html",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/Readme.md",
-			"settings":
-			{
-				"buffer_size": 254,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -397,12 +373,13 @@
 	],
 	"file_history":
 	[
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/web-server/app.py",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/web-server/templates/main.html",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/Readme.md",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/web-server/DeafDoorbell.sublime-project",
 		"/home/collier/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
 		"/home/collier/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/collier/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/Readme.md",
-		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/web-server/templates/main.html",
-		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/web-server/app.py",
 		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/pythonFlaskTry2/web-server/templates/main.html",
 		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/pythonFlaskTry2/web-server/app.py",
 		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/pythonFlaskTry2/Readme.md",
@@ -523,8 +500,7 @@
 		"/home/collier/GitHub/ProblemSolvingProg/Lab10/kattis/input1.in",
 		"/home/collier/GitHub/ProblemSolvingProg/Lab10/kattis/output1.out",
 		"/home/collier/GitHub/ProblemSolvingProg/Lab10/kattis/kattis.cpp",
-		"/home/collier/GitHub/ProblemSolvingProg/HW9/coast/input1.in",
-		"/home/collier/GitHub/ProblemSolvingProg/HW9/coast/output1.out"
+		"/home/collier/GitHub/ProblemSolvingProg/HW9/coast/input1.in"
 	],
 	"find":
 	{
@@ -560,93 +536,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 186,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "templates/main.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/Readme.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 254,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
 			]
 		}
 	],
