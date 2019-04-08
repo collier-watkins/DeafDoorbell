@@ -18,10 +18,12 @@ export FLASK_DEBUG=1
 ```
 
 ## Run Commands
+Navigate to web-server/
 ```
-flask run
+sudo flask run
 ```
 or:
 ```
-python app.py
+sudo python app.py
 ```
+sudo is required to run on port 80
