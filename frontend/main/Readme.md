@@ -2,8 +2,7 @@ MOST SUCCESSFUL ROUTE SO FAR.
 
 GPIO tutorial: https://randomnerdtutorials.com/raspberry-pi-web-server-using-flask-to-control-gpios/
 
-Follow this video: https://www.youtube.com/watch?v=MwZwr5Tvyxo
-Time: 14:41
+Just finished this video: https://www.youtube.com/watch?v=QnDWIZuWYW0
 
 ## Plan
 Use the flask framework in Python to produce an HTML page that can operate remote Pi GPIO pins using "Remote GPIO" in python.
@@ -26,4 +25,6 @@ or:
 ```
 sudo python app.py
 ```
-sudo is required to run on port 80
+sudo is required to run on port 80.
+
+Use web browser to navigate to http://localhost
