@@ -1,0 +1,739 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"CSs",
+				"CSstudents"
+			],
+			[
+				"raw",
+				"raw_deps"
+			],
+			[
+				"num",
+				"numGoodGold"
+			],
+			[
+				"ini",
+				"initialSizes"
+			],
+			[
+				"paht",
+				"pathIndex"
+			],
+			[
+				"path",
+				"pathIndex"
+			],
+			[
+				"min",
+				"min_index"
+			],
+			[
+				"h",
+				"hVals"
+			],
+			[
+				"max",
+				"maxFreq"
+			],
+			[
+				"p1",
+				"p1double"
+			],
+			[
+				"p2",
+				"p2double"
+			],
+			[
+				"pol",
+				"polLike"
+			],
+			[
+				"polL",
+				"polLikeState"
+			],
+			[
+				"po",
+				"polLike"
+			],
+			[
+				"old",
+				"oldRight"
+			],
+			[
+				"str",
+				"straight"
+			],
+			[
+				"attack",
+				"attackMap"
+			],
+			[
+				"at",
+				"attackMap"
+			],
+			[
+				"comp",
+				"company"
+			],
+			[
+				"com",
+				"companyList"
+			],
+			[
+				"compan",
+				"company"
+			],
+			[
+				"companyPage",
+				"companyPage_raw"
+			],
+			[
+				"cur",
+				"currMachBottomColor"
+			],
+			[
+				"itemsc",
+				"itemscope"
+			],
+			[
+				"unor",
+				"unordered_map\tstandard header (since c++11)"
+			],
+			[
+				"pa",
+				"pathways"
+			],
+			[
+				"shop",
+				"shoppingList"
+			],
+			[
+				"ingre",
+				"ingredientMap"
+			],
+			[
+				"ing",
+				"ingredientMap"
+			],
+			[
+				"time",
+				"timeMap"
+			],
+			[
+				"val",
+				"valMap"
+			],
+			[
+				"era",
+				"eraseVal"
+			],
+			[
+				"dis",
+				"distMaxTime"
+			],
+			[
+				"er",
+				"eraseVal"
+			],
+			[
+				"past",
+				"pastPots"
+			],
+			[
+				"curr",
+				"currPot"
+			],
+			[
+				"pr",
+				"products"
+			],
+			[
+				"pro",
+				"products_sorted"
+			],
+			[
+				"al",
+				"alphabetize"
+			],
+			[
+				"pri",
+				"priQueue"
+			],
+			[
+				"res",
+				"resetLight2"
+			],
+			[
+				"displ",
+				"displayLight1"
+			],
+			[
+				"bir",
+				"birdLocNext"
+			],
+			[
+				"bird",
+				"birdLoc"
+			],
+			[
+				"month",
+				"monthStarts"
+			],
+			[
+				"best",
+				"bestWordrank"
+			],
+			[
+				"part",
+				"partList"
+			],
+			[
+				"par",
+				"partList"
+			],
+			[
+				"rig",
+				"rightAnswers"
+			],
+			[
+				"letter",
+				"letterIndex"
+			],
+			[
+				"problem",
+				"problemList"
+			],
+			[
+				"numC",
+				"numCarrots"
+			],
+			[
+				"get",
+				"getBadgeClasses"
+			],
+			[
+				"CSV",
+				"CSVErrMsg"
+			],
+			[
+				"last",
+				"last_name_list"
+			],
+			[
+				"fir",
+				"first_name_list"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"handleClas",
+				"handleClassListSubmit"
+			],
+			[
+				"handleProf",
+				"handleProfFirstNameChange"
+			],
+			[
+				"Last",
+				"LastName"
+			],
+			[
+				"First",
+				"FirstName"
+			],
+			[
+				"Prof",
+				"profNameReqHidden"
+			],
+			[
+				"Pro",
+				"profNameReqHidden"
+			],
+			[
+				"prof",
+				"profNameReqHidden"
+			],
+			[
+				"Clas",
+				"ClassName"
+			],
+			[
+				"Add",
+				"AddClassInfoBox"
+			],
+			[
+				"DragAndDrop",
+				"DragAndDropHidden"
+			],
+			[
+				"phase",
+				"phase2hidden"
+			],
+			[
+				"phase1",
+				"phase1hidden"
+			],
+			[
+				"doc",
+				"doc_length"
+			],
+			[
+				"term",
+				"term_count"
+			],
+			[
+				"mag",
+				"magStripeOutput"
+			],
+			[
+				"peak",
+				"peakCounter"
+			],
+			[
+				"return",
+				"returnVal"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app.py",
+			"settings":
+			{
+				"buffer_size": 186,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/main.html",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/Readme.md",
+			"settings":
+			{
+				"buffer_size": 254,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"close",
+				"File: Close All"
+			],
+			[
+				"select ",
+				"UI: Select Theme"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"install package",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 150.0,
+		"history":
+		[
+			"exit",
+			"pwd",
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/main",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/web-server",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/web-server/templates"
+	],
+	"file_history":
+	[
+		"/home/collier/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
+		"/home/collier/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/collier/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/Readme.md",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/web-server/templates/main.html",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/web-server/app.py",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/pythonFlaskTry2/web-server/templates/main.html",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/pythonFlaskTry2/web-server/app.py",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/pythonFlaskTry2/Readme.md",
+		"/home/collier/GitHub/ProblemSolvingProg/HW10/human/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/HW10/human/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/HW10/human/human.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/e/e.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/d/d.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/k/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/k/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/k/input2.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/k/output2.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/k/k.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/e/output2.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/e/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/e/input2.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/e/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/p/p.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/p/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/p/input2.i",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/p/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/l/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/l/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/l/input2.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/l/output2.out",
+		"/home/collier/GitHub/ProblemSolvingProg/f/f.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/l/l.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/i/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/i/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/i/input2.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/i/output2.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/i/i.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/b/b.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/j/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/j/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/j/input2.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/j/output2.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/j/j.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/h/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/h/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/h/input2.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/h/output2.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/h/h.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/c/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/c/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/c/input2.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/c/output2.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/c/c.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/n/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/n/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/n/input2.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/n/output2.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/n/n.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/b/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/b/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/a/a.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/paper/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/paper/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/paper/input2.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/paper/output2.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/paper/paper.py",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/a/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/comp/a/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/lucky/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/lucky/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/lucky/input2.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/lucky/output2.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/lucky/lucky.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/sticks/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/sticks/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/sticks/sticks.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/lawnmower/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/lawnmower/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/lawnmower/lawnmower.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/lawnmower/lawnmower.py",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10b/lawnmower.py",
+		"/home/collier/Desktop/HelloWorld.java",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/pythonHttp/simple_gpio.py",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/pythonHttp/simple_webserver.py",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/PythonFlask/rpiWebServer/helloWorld.py",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/PythonFlask/Readme.md",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/HelloWorld/README.md",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/HelloWorld/myfirstmodule.js",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/HelloWorld/demo_http_url.js",
+		"/home/collier/GitHub/DeafDoorbellFrontend/frontend/HelloWorld/myfirst.js",
+		"/home/collier/GitHub/ProblemSolvingProg/HW10/birthday/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/HW10/birthday/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/HW10/birthday/birthday.cpp",
+		"/home/collier/GitHub/DeafDoorbellFrontend/HelloWorld/demo_http_url.js",
+		"/home/collier/GitHub/DeafDoorbellFrontend/HelloWorld/myfirst.js",
+		"/home/collier/GitHub/DeafDoorbellFrontend/HelloWorld/myfirstmodule.js",
+		"/home/collier/GitHub/DeafDoorbellFrontend/HelloWorld/README.md",
+		"/home/collier/GitHub/DeafDoorbellFrontend/README.md",
+		"/home/collier/GitHub/ProblemSolvingProg/HW9/build/build.py",
+		"/home/collier/GitHub/ProblemSolvingProg/HW9/build/build.",
+		"/home/collier/GitHub/ProblemSolvingProg/HW9/build/build.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/drivingRange/output2.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/drivingRange/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/drivingRange/input2.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/drivingRange/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/drivingRange/drivingRange.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/gold/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/gold/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/gold/input2.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/gold/output2.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/gold/gold.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/zoo/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/zoo/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/zoo/input2.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/zoo/output2.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/zoo/zoo.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/relocation/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/relocation/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/relocation/relocation.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/treasure/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/treasure/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/treasure/treasure.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/kattis/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/kattis/output1.out",
+		"/home/collier/GitHub/ProblemSolvingProg/Lab10/kattis/kattis.cpp",
+		"/home/collier/GitHub/ProblemSolvingProg/HW9/coast/input1.in",
+		"/home/collier/GitHub/ProblemSolvingProg/HW9/coast/output1.out"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"package"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 186,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "templates/main.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/collier/GitHub/DeafDoorbellFrontend/frontend/main/Readme.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 42.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "DeafDoorbell.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/GitHub/FLYP-EC2-Repo/frontend/awsusite/src/App.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 201.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
