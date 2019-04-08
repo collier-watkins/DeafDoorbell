@@ -6,7 +6,7 @@ Follow this video: https://www.youtube.com/watch?v=MwZwr5Tvyxo
 Time: 14:41
 
 ## Plan
-	Use the flask framework in Python to produce an HTML page that can operate remote Pi GPIO pins using "Remote GPIO" in python.
+Use the flask framework in Python to produce an HTML page that can operate remote Pi GPIO pins using "Remote GPIO" in python.
 
 ## Dependency Commands
 ```
