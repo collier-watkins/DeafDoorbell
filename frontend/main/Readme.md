@@ -17,7 +17,7 @@ sudo pip install flask_wtf
 ## Run Commands
 Navigate to web-server/
 ```
-sudo python3 app.py
+sudo python app.py
 ```
 or if that doesn't work:
 ```
