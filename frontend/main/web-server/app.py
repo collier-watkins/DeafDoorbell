@@ -31,8 +31,8 @@ posts = [
 @app.route("/", methods=['GET', 'POST'])	#Related to website locations
 def homePage():	#Returns data for the main home page, should be HTML data
 	form = MessageForm()
-	if form.validate_on_submit():
-		flash(f'Message sent!', 'success')
+	#if form.validate_on_submit():
+	#	flash(f'Message sent!', 'success')
 	return render_template('home.html', posts=posts, title='Blog Posts', form=form)
 
 
