@@ -27,7 +27,7 @@ sudo flask run
 ```
 or:
 ```
-sudo python app.py
+sudo python3 app.py
 ```
 sudo is required to run on port 80.
 

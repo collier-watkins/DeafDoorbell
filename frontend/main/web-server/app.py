@@ -1,5 +1,8 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, flash
 from forms import MessageForm
+from wtforms.widgets import html_params, HTMLString
+
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '3985723043u208uj23022039rue'
@@ -25,9 +28,11 @@ posts = [
 
 
 #Home Page
-@app.route("/")	#Related to website locations
+@app.route("/", methods=['GET', 'POST'])	#Related to website locations
 def homePage():	#Returns data for the main home page, should be HTML data
 	form = MessageForm()
+	if form.validate_on_submit():
+		flash(f'Message sent!', 'success')
 	return render_template('home.html', posts=posts, title='Blog Posts', form=form)
 
 
