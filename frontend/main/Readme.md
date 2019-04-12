@@ -11,23 +11,21 @@ Use the flask framework in Python to produce an HTML page that can operate remot
 ```
 sudo pip install flask
 
-export FLASK_APP=app.py
-
-export FLASK_DEBUG=1
-
 sudo pip install flask_wtf
-	#or: sudo pip3 install flask_wtf
 ```
-
 
 ## Run Commands
 Navigate to web-server/
 ```
-sudo flask run
-```
-or:
-```
 sudo python3 app.py
+```
+or if that doesn't work:
+```
+export FLASK_APP=app.py
+
+export FLASK_DEBUG=1
+
+sudo flask run
 ```
 sudo is required to run on port 80.
 
@@ -37,7 +35,7 @@ Use web browser to navigate to http://localhost or the local IP address of the d
 Run all dependency commands above.
 Open config with ```sudo raspi-config``` and enable SSH (if desired).
 
-### Bonjour Support
+### Optional Bonjour Support
 Allows local network URL creation. You will no longer have to type in a local IP address to the browser, just use the local URL instead.
 ```
 sudo apt-get update
