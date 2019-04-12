@@ -1,6 +1,8 @@
 from flask import Flask, render_template, url_for
+from forms import MessageForm
 app = Flask(__name__)
 
+app.config['SECRET_KEY'] = '3985723043u208uj23022039rue'
 
 posts = [
 	{
@@ -25,13 +27,15 @@ posts = [
 #Home Page
 @app.route("/")	#Related to website locations
 def homePage():	#Returns data for the main home page, should be HTML data
-	return render_template('home.html', posts=posts, title='Blog Posts')
+	form = MessageForm()
+	return render_template('home.html', posts=posts, title='Blog Posts', form=form)
 
 
 #About Page
 @app.route("/about")	
 def aboutPage():
 	return "<h1>About Page</h1>"
+
 
 
 

@@ -1,6 +1,27 @@
 {% extends "layout.html" %}
 {% block content %}
-	<h1> Home Page Template </h1>
+	<h1> Doorbell Messenger </h1>
+
+
+	<div class="content-section">
+		<form method="POST" action="">
+			 {{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				<!-- <legend class="border-bottom mb-4"> Join Today</legend> -->
+				<div class="form-group">
+					{{ form.LCDMessage.label(class="form-control-label") }}
+					{{ form.LCDMessage(class="form-control form-control-lg", rows='2', cols='16', maxlength="32") }}
+				</div>
+				<!--Possibly add client buttons here -->
+				<div class="form-group">
+					{{ form.submit(class="btn btn-outline-info") }}
+				</div>
+			</fieldset>
+		</form>
+	</div>
+
+	<div><p>-------------------------------------</p></div>
+
 	{% for post in posts %}
 		<h1>{{post.title}}</h1>
 		<p>By {{post.author}} on {{post.date_posted}}</p>
