@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField
+from wtforms import StringField, SubmitField, TextAreaField, BooleanField
 from wtforms.validators import DataRequired, Length
 from wtforms.widgets import html_params, HTMLString
 
@@ -30,8 +30,8 @@ class MessageForm(FlaskForm):
 	LCDMessage = TextAreaField('LCDMessage',
 							validators=[DataRequired(), Length(min=1,max=32)])
 
-	client1 = ButtonField('Joy\'s Bedroom') 
-	client2 = ButtonField('Upstairs Bathroon')
+	client1 = BooleanField('Joy\'s Room')
+	client2 = BooleanField('Upstairs Bathroom')
 
 	submit = SubmitField('Send')
 

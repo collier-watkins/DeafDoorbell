@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, flash
+from flask import Flask, render_template, url_for, flash, request
 from forms import MessageForm
 from wtforms.widgets import html_params, HTMLString
 
@@ -7,22 +7,7 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '3985723043u208uj23022039rue'
 
-posts = [
-	{
-		'author': 'Jim Beam',
-		'title': 'Blog Post 1',
-		'content': 'first post content',
-		'date_posted': 'April 20, 2018'
-	},
 
-	{
-		'author': 'Joey James',
-		'title': 'Blog Post 2',
-		'content': 'second post content',
-		'date_posted': 'April 21, 2018'
-	}
-
-]
 
 
 
@@ -31,9 +16,18 @@ posts = [
 @app.route("/", methods=['GET', 'POST'])	#Related to website locations
 def homePage():	#Returns data for the main home page, should be HTML data
 	form = MessageForm()
-	#if form.validate_on_submit():
-	#	flash(f'Message sent!', 'success')
-	return render_template('home.html', posts=posts, title='Blog Posts', form=form)
+	if form.validate_on_submit():
+		#THIS IS WHAT HAPPENS WHEN THE SUBMIT BUTTON IS PRESSED
+		 message = request.form.get("LCDMessage")
+		 device1 = request.form.get("Joy\'s Room") != None
+		 device2 = "Upstairs Bathroom" in request.form
+		 app.logger.warning('Submit happened!')
+		 app.logger.warning(message)
+		 app.logger.warning(device1)
+		 app.logger.warning(device2)
+
+
+	return render_template('home.html', title='Blog Posts', form=form)
 
 
 #About Page
