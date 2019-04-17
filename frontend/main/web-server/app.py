@@ -16,15 +16,32 @@ app.config['SECRET_KEY'] = '3985723043u208uj23022039rue'
 @app.route("/", methods=['GET', 'POST'])	#Related to website locations
 def homePage():	#Returns data for the main home page, should be HTML data
 	form = MessageForm()
+
+	JoysRoom = False
+	UpstairsBathroom = False
+
+	if request.method == "POST":
+		 locations = request.form.getlist('location')
+		 if u'Upstairs Bathroom' in locations : UpstairsBathroom = True
+		 if u'Joys Room' in locations : JoysRoomBathroom = True
+
+
+
 	if form.validate_on_submit():
 		#THIS IS WHAT HAPPENS WHEN THE SUBMIT BUTTON IS PRESSED
 		 message = request.form.get("LCDMessage")
-		 device1 = request.form.get("Joy\'s Room") != None
-		 device2 = "Upstairs Bathroom" in request.form
+
 		 app.logger.warning('Submit happened!')
 		 app.logger.warning(message)
-		 app.logger.warning(device1)
-		 app.logger.warning(device2)
+		 app.logger.warning("Joy\'s Room: " + str(JoysRoom)) 
+		 app.logger.warning("Upstairs Bathroom: " + str(UpstairsBathroom)) 
+
+		 ######Send message to LCD and do GPIO stuff here #########
+
+
+
+		 #####################
+
 
 
 	return render_template('home.html', title='Blog Posts', form=form)
