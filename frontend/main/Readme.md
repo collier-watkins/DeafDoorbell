@@ -15,7 +15,7 @@ sudo pip install flask_wtf
 
 sudo apt-get install i2c-tools
 
-
+sudo apt-get install python-smbus
 ```
 
 ## Run Commands
