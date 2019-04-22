@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, flash
+from flask import Flask, render_template, url_for, flash, request
 from forms import MessageForm
 from wtforms.widgets import html_params, HTMLString
 
@@ -7,22 +7,7 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '3985723043u208uj23022039rue'
 
-posts = [
-	{
-		'author': 'Jim Beam',
-		'title': 'Blog Post 1',
-		'content': 'first post content',
-		'date_posted': 'April 20, 2018'
-	},
 
-	{
-		'author': 'Joey James',
-		'title': 'Blog Post 2',
-		'content': 'second post content',
-		'date_posted': 'April 21, 2018'
-	}
-
-]
 
 
 
@@ -31,9 +16,35 @@ posts = [
 @app.route("/", methods=['GET', 'POST'])	#Related to website locations
 def homePage():	#Returns data for the main home page, should be HTML data
 	form = MessageForm()
-	#if form.validate_on_submit():
-	#	flash(f'Message sent!', 'success')
-	return render_template('home.html', posts=posts, title='Blog Posts', form=form)
+
+	JoysRoom = False
+	UpstairsBathroom = False
+
+	if request.method == "POST":
+		 locations = request.form.getlist('location')
+		 if u'Upstairs Bathroom' in locations : UpstairsBathroom = True
+		 if u'Joys Room' in locations : JoysRoomBathroom = True
+
+
+
+	if form.validate_on_submit():
+		#THIS IS WHAT HAPPENS WHEN THE SUBMIT BUTTON IS PRESSED
+		 message = request.form.get("LCDMessage")
+
+		 app.logger.warning('Submit happened!')
+		 app.logger.warning(message)
+		 app.logger.warning("Joy\'s Room: " + str(JoysRoom)) 
+		 app.logger.warning("Upstairs Bathroom: " + str(UpstairsBathroom)) 
+
+		 ######Send message to LCD and do GPIO stuff here #########
+		 
+
+
+		 #####################
+
+
+
+	return render_template('home.html', title='Blog Posts', form=form)
 
 
 #About Page

@@ -26,13 +26,23 @@
 
 				<legend class="border-bottom mb-4"> Locations </legend>
 
-				<div class="form-group">
-					{{ form.client1(class="btn btn-outline-info") }}
-					{{ form.client2(class="btn btn-outline-info") }}
+				<div class="custom-control custom-checkbox">
+					<input type="checkbox" class="custom-control-input" id="customCheck1" name="location" value="Joys Room">
+					<label class="custom-control-label" for="customCheck1">Joy's Room</label>
 				</div>
+				
+				<br>
+
+				<div class="custom-control custom-checkbox">
+					<input type="checkbox" class="custom-control-input" id="customCheck2" name="location" value="Upstairs Bathroom">
+					<label class="custom-control-label" for="customCheck2">Upstairs Bathroom</label>
+				</div>
+					
+
+				<br>
+				
 
 				<legend class="border-bottom mb-4"></legend>
-
 				<div class="form-group">
 					{{ form.submit(class="btn btn-primary") }}
 				</div>

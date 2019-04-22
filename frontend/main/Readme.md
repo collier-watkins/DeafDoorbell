@@ -12,6 +12,10 @@ Use the flask framework in Python to produce an HTML page that can operate remot
 sudo pip install flask
 
 sudo pip install flask_wtf
+
+sudo apt-get install i2c-tools
+
+
 ```
 
 ## Run Commands
