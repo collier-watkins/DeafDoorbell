@@ -37,7 +37,7 @@ def homePage():	#Returns data for the main home page, should be HTML data
 		 app.logger.warning("Upstairs Bathroom: " + str(UpstairsBathroom)) 
 
 		 ######Send message to LCD and do GPIO stuff here #########
-
+		 
 
 
 		 #####################
