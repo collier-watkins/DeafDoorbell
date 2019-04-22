@@ -1,4 +1,5 @@
 import I2C_LCD_driver
+import socket
 import fcntl
 import struct
 
@@ -12,7 +13,6 @@ def get_ip_address(ifname):
         struct.pack('256s', ifname[:15])
     )[20:24])
 
-
 mylcd = I2C_LCD_driver.lcd()
 
-mylcd.lcd_display_string(get_ip_address('lo', 2, 3)
+mylcd.lcd_display_string("IP:" + get_ip_address('wlan0'), 2, 0)
