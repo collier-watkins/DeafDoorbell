@@ -12,6 +12,18 @@ host = "192.168.0.13"
 port = 8888
 
 
+
+#CLIENT NEEDS
+
+# GPIO things:
+	# LCD Screen
+	# Motion Sensor
+	# LED for attention
+	# Button for acknowledgement
+
+
+
+
 def get_pi_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     return socket.inet_ntoa(fcntl.ioctl(
@@ -57,9 +69,8 @@ print("Socket connected")
 while True: 
 	message = "this message is sent to the server"
 
-	# poll motion sensor here
-		#put that info in the string somehow
-
+	# GET MOTION SENSOR AND BUTTON STATUS INFO HERE
+	# PUT IN A STRING
 
 
 	sleep(10)
