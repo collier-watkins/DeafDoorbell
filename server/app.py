@@ -30,7 +30,7 @@ def clientThread(conn):
 		if not data :
 			break
 		print("Client data received: " + data.decode())
-		reply = "Test reply".encode()
+		reply = input("Reply here: ")
 		conn.sendall(reply)
 
 	conn.close()
