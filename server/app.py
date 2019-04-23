@@ -26,7 +26,7 @@ conn, addr = s.accept()
 
 print("Connected with " + str(addr[0]) + ":" + str(addr[1]))
 
-#data = conn.recv(1024 * 16*2)	#32kb of data
+data = conn.recv(1024 * 16*2)	#32kb of data
 print(data.decode())
 conn.sendall("Howdy")
 

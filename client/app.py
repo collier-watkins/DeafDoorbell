@@ -54,7 +54,7 @@ s.connect((host_ip, port))
 
 print("Socket connected")
 
-message = "GET / HTTP/1.1\r\n\r\n"
+message = "Hello"
 
 #Actually send message
 try:
