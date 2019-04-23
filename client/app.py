@@ -55,9 +55,16 @@ s.connect((host, port))
 print("Socket connected")
 
 while True: 
-	message = input("Input: ")
+	message = "this message is sent to the server"
 
-	#Actually send message
+	# poll motion sensor here
+		#put that info in the string somehow
+
+
+
+	sleep(10)
+
+	#Below sends message string
 	try:
 		s.sendall(message.encode())
 	except:
@@ -66,7 +73,8 @@ while True:
 
 	print("Message Sent")
 
-	reply = s.recv(4096)
+	#This is what the server sends back. Will contain the message the LCD screen should show
+	reply = s.recv(4096)	#4096 is the size of the memory received from the socket
 
 	print(reply.decode())
 
