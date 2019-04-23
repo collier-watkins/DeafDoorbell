@@ -64,3 +64,9 @@ except:
 	sys.exit()
 
 print("Message Sent")
+
+reply = s.recv(4096)
+
+print(reply.decode())
+
+s.close() #Closing socket connection, remove later
