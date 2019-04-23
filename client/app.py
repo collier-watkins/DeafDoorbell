@@ -8,8 +8,8 @@ from thread import *
 
 from time import *
 
-host = "www.google.com"
-port = 80
+host = "192.168.0.13"
+port = 8888
 
 
 def get_pi_ip_address(ifname):
