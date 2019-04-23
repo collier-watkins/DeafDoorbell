@@ -29,7 +29,8 @@ if __name__ == "__main__":
 				try:
 					data = sock.recv(RECV_BUFFER)
 					if data :
-						sock.send(data)
+						sock.send("Server received data".encode())
+						print("Client says:" + data.decode())
 				except:
 					broadcast_data(sock, "Client is offline")
 					print("Client is offline (printstatement)")

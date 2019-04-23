@@ -2,11 +2,14 @@ from flask import Flask, render_template, url_for, flash, request
 from forms import MessageForm
 from wtforms.widgets import html_params, HTMLString
 
+from flask_socketio import SocketIO
+
+#import socket, select
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '3985723043u208uj23022039rue'
-
+socketio = SocketIO(app)
 
 
 
@@ -47,6 +50,20 @@ def homePage():	#Returns data for the main home page, should be HTML data
 	return render_template('home.html', title='Blog Posts', form=form)
 
 
+
+
+def messageReceived(methods=['GET', 'POST']):
+    print('message was received!!!')
+
+@socketio.on('my event')
+def handle_my_custom_event(json, methods=['GET', 'POST']):
+    print('received my event: ' + str(json))
+    socketio.emit('my response', json, callback=messageReceived)
+
+
+
+
+
 #About Page
 @app.route("/about")	
 def aboutPage():
@@ -60,6 +77,7 @@ def aboutPage():
 
 
 
-#Run Flask Application
+
 if __name__ == '__main__':
-	app.run(debug=True, host='0.0.0.0', port=80)
+	#Run Flask Application
+	socketio.run(app, debug=True, host='0.0.0.0', port=80)
