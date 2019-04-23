@@ -50,7 +50,7 @@ s = setupServer()
 
 host_ip = socket.gethostbyname(host)
 
-s.connect((host_ip, port))
+s.connect((host, port))
 
 print("Socket connected")
 
