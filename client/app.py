@@ -55,7 +55,7 @@ s.connect((host_ip, port))
 print("Socket connected")
 
 while True: 
-	message = str(input("Input: "))
+	message = input("Input: ")
 
 	#Actually send message
 	try:
