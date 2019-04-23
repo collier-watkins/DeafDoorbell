@@ -46,10 +46,6 @@ mylcd.lcd_display_string("IP:" + get_pi_ip_address('wlan0'), 2, 0)
 
 ####### Socket Setup ######################################
 
-sendableString = "Yo, what's up"
-
-
-
 s = setupServer()
 
 host_ip = socket.gethostbyname(host)
@@ -57,3 +53,14 @@ host_ip = socket.gethostbyname(host)
 s.connect((host_ip, port))
 
 print("Socket connected")
+
+message = "GET / HTTP/1.1\r\n\r\n"
+
+#Actually send message
+try:
+	s.sendall(message.encode())
+except:
+	print("Did not send message")
+	sys.exit()
+
+print("Message Sent")
