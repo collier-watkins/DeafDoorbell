@@ -54,19 +54,20 @@ s.connect((host_ip, port))
 
 print("Socket connected")
 
-message = "Hello"
+while True: 
+	message = str(input("Input: "))
 
-#Actually send message
-try:
-	s.sendall(message.encode())
-except:
-	print("Did not send message")
-	sys.exit()
+	#Actually send message
+	try:
+		s.sendall(message.encode())
+	except:
+		print("Did not send message")
+		sys.exit()
 
-print("Message Sent")
+	print("Message Sent")
 
-reply = s.recv(4096)
+	reply = s.recv(4096)
 
-print(reply.decode())
+	print(reply.decode())
 
 s.close() #Closing socket connection, remove later
