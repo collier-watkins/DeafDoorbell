@@ -4,7 +4,7 @@ import fcntl
 import struct
 
 import sys
-from thread import *
+from _thread import *
 
 from time import *
 
@@ -55,7 +55,7 @@ s.connect((host_ip, port))
 print("Socket connected")
 
 while True: 
-	message = raw_input("Input: ")
+	message = input("Input: ")
 
 	#Actually send message
 	try:
