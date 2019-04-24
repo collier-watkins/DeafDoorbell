@@ -21,6 +21,11 @@ socketio = SocketIO(app)
  
 client1IP = "192.168.0.16"
 
+message = ""
+JoysRoom = False
+UpstairsBathroom = False
+
+
 
 def get_pi_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -48,7 +53,7 @@ def homePage():	#Returns data for the main home page, should be HTML data
 
 	mylcd.lcd_display_string("*", 1, 15)
 
-	
+
 	form = MessageForm()
 
 	JoysRoom = False
@@ -74,7 +79,7 @@ def homePage():	#Returns data for the main home page, should be HTML data
 
 
 		 #subprocess.run()
-
+		 
 
 		 #####################
 
