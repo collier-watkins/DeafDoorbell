@@ -18,6 +18,7 @@ port = 8888
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_UP)	#Button
 GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)	#Occupancy
+GPIO.setup(18, GPIO.OUT)	#Attention LED
 GPIO.setup(24, GPIO.OUT)
 
 
@@ -110,7 +111,15 @@ while True:
 	if GPIO.input(17) == True :
 		print("Occupied")
 		mylcd.lcd_display_string("*", 1, 15)
+		#Attention LED testing
+		GPIO.output(18,1)
 	else :
 		mylcd.lcd_display_string(" ", 1, 15)
+		#Attention LED testing
+		GPIO.output(18,0)
+
+
+
+
 
 #s.close() #Closing socket connection, remove later
