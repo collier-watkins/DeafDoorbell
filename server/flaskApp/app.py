@@ -4,13 +4,15 @@ from wtforms.widgets import html_params, HTMLString
 
 from flask_socketio import SocketIO
 
+import subprocess
+
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '3985723043u208uj23022039rue'
 socketio = SocketIO(app)
  
-
+client1IP = "192.168.0.16"
 
 
 #Home Page
@@ -38,7 +40,9 @@ def homePage():	#Returns data for the main home page, should be HTML data
 		 app.logger.warning("Upstairs Bathroom: " + str(UpstairsBathroom)) 
 
 		 ######Send message to LCD and do GPIO stuff here #########
-		 
+
+
+		 subprocess.run()
 
 
 		 #####################
