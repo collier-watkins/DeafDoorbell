@@ -37,7 +37,7 @@ mylcd.lcd_clear()
 print("Starting...")
 print("Current Local IP: " + get_pi_ip_address('wlan0'))
 
-mylcd.lcd_display_string("Server running @", 1, 0)
+mylcd.lcd_display_string("Server", 1, 0)
 mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
 
 
@@ -45,6 +45,10 @@ mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
 #Home Page
 @app.route("/", methods=['GET', 'POST'])	#Related to website locations
 def homePage():	#Returns data for the main home page, should be HTML data
+
+	mylcd.lcd_display_string("*", 1, 15)
+
+	
 	form = MessageForm()
 
 	JoysRoom = False
