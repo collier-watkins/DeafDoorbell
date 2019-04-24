@@ -19,7 +19,6 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_UP)	#Button
 GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)	#Occupancy
 GPIO.setup(18, GPIO.OUT)	#Attention LED
-GPIO.setup(24, GPIO.OUT)
 
 
 
