@@ -48,7 +48,7 @@ def get_pi_ip_address(ifname):
 
 mylcd = I2C_LCD_driver.lcd()
 
-
+mylcd.lcd_clear()
 
 #def setupServer():
 #	try: 
@@ -87,6 +87,7 @@ while True :
 
 while True: 
 	message = "this message is sent to the server"
+	mylcd.lcd_clear()
 
 	# GET MOTION SENSOR AND BUTTON STATUS INFO HERE
 	# PUT IN A STRING
