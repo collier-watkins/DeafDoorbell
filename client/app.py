@@ -17,6 +17,9 @@ port = 8888
 
 # GPIO things:
 	# LCD Screen
+		# VCC and Ground on board
+		# SDA on GPIO 2
+		# SCL on GPIO 3
 	# Motion Sensor
 	# LED for attention
 	# Button for acknowledgement
