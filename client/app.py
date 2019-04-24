@@ -103,6 +103,7 @@ while True:
 
 	if(GPIO.input(4) == False){
 		print("Button Pressed")
+		mylcd.lcd_display_string("Btn Pressed", 1, 1)
 	}
 
 
