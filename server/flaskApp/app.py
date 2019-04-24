@@ -2,6 +2,11 @@ from flask import Flask, render_template, url_for, flash, request
 from forms import MessageForm
 from wtforms.widgets import html_params, HTMLString
 
+import socket
+import fcntl
+import struct 
+import sys
+
 from flask_socketio import SocketIO
 
 import I2C_LCD_driver
@@ -31,8 +36,8 @@ mylcd.lcd_clear()
 
 
 
-mylcd.lcd_display_string("Server running...", 1, 0)
-mylcd.lcd_display_string("IP:" + get_pi_ip_address('wlan0'), 2, 0)
+mylcd.lcd_display_string("Server running @", 1, 0)
+mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
 
 
 
