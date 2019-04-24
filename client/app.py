@@ -8,8 +8,16 @@ from _thread import *
 
 from time import *
 
+import RPi.GPIO as GPIO
+
+
+
 host = "192.168.0.13"
 port = 8888
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_UP)	#Button
+GPIO.setup(24, GPIO.OUT)
 
 
 
@@ -76,20 +84,26 @@ while True:
 	# PUT IN A STRING
 
 
-	sleep(10)
+	sleep(0.2)
 
 	#Below sends message string
-	try:
-		s.sendall(message.encode())
-	except:
-		print("Did not send message")
-		sys.exit()
+	#try:
+	#	s.sendall(message.encode())
+	#except:
+	#	print("Did not send message")
+	#	sys.exit()
 
-	print("Message Sent")
+	#print("Message Sent")
 
 	#This is what the server sends back. Will contain the message the LCD screen should show
-	reply = s.recv(4096)	#4096 is the size of the memory received from the socket
+	#reply = s.recv(4096)	#4096 is the size of the memory received from the socket
 
-	print(reply.decode())
+	#print(reply.decode())
+
+
+	if(GPIO.input(4) == False){
+		print("Button Pressed")
+	}
+
 
 s.close() #Closing socket connection, remove later
