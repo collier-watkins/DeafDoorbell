@@ -100,10 +100,13 @@ while True:
 
 	#print(reply.decode())
 
+	#Button pressed
+	#if GPIO.input(4) == False :
+	#	print("Button Pressed")
+	#	mylcd.lcd_display_string("Btn Pressed", 1, 1)
 
-	if GPIO.input(4) == False :
-		print("Button Pressed")
-		mylcd.lcd_display_string("Btn Pressed", 1, 1)
-
+	#Room occupied
+	if GPIO.input(4) == True :
+		print("Occupied")
 
 #s.close() #Closing socket connection, remove later
