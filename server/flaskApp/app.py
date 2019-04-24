@@ -34,7 +34,8 @@ mylcd = I2C_LCD_driver.lcd()
 
 mylcd.lcd_clear()
 
-
+print("Starting...")
+print("Current Local IP: " + get_pi_ip_address('wlan0'))
 
 mylcd.lcd_display_string("Server running @", 1, 0)
 mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
