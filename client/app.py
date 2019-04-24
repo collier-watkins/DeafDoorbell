@@ -4,7 +4,7 @@ import fcntl
 import struct
 
 import sys
-from _thread import *
+from thread import *
 
 from time import *
 
@@ -47,14 +47,14 @@ mylcd = I2C_LCD_driver.lcd()
 
 
 
-def setupServer():
-	try: 
-		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM);
-		print("Socket s created.")
-	except socket.error as msg :
-		print(msg)
-		sys.exit()
-	return s
+#def setupServer():
+#	try: 
+#		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM);
+#		print("Socket s created.")
+#	except socket.error as msg :
+#		print(msg)
+#		sys.exit()
+#	return s
 
 
 
@@ -69,20 +69,20 @@ mylcd.lcd_display_string("IP:" + get_pi_ip_address('wlan0'), 2, 0)
 
 ####### Socket Setup ######################################
 
-s = setupServer()
+#s = setupServer()
 
-host_ip = socket.gethostbyname(host)
+#host_ip = socket.gethostbyname(host)
 
-s.connect((host, port))
+#s.connect((host, port))
 
-print("Socket connected")
+print("Socket turned off for now")
 
 while True: 
 	message = "this message is sent to the server"
 
 	# GET MOTION SENSOR AND BUTTON STATUS INFO HERE
 	# PUT IN A STRING
-
+	
 
 	sleep(0.2)
 
@@ -106,4 +106,4 @@ while True:
 	}
 
 
-s.close() #Closing socket connection, remove later
+#s.close() #Closing socket connection, remove later
