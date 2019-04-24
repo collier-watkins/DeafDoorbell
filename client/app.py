@@ -19,7 +19,7 @@ port = 8888
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_UP)	#Button
-GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)	#Occupancy
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)	#Occupancy Signal
 GPIO.setup(18, GPIO.OUT)	#Attention LED
 
 
@@ -79,7 +79,7 @@ mylcd.lcd_display_string("IP:" + get_pi_ip_address('wlan0'), 2, 0)
 #s.connect((host, port))
 
 print("Socket turned off for now")
-
+mylcd.lcd_display_string("Tap btn to start", 1, 0)
 while True :
 	if GPIO.input(4) == False :
 		mylcd.lcd_clear()
