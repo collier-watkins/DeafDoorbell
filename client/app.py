@@ -11,6 +11,8 @@ from time import *
 import RPi.GPIO as GPIO
 
 
+#autorunning this script using the file /home/pi/.bashrc
+
 
 host = "192.168.0.13"
 port = 8888
@@ -77,6 +79,11 @@ mylcd.lcd_display_string("IP:" + get_pi_ip_address('wlan0'), 2, 0)
 #s.connect((host, port))
 
 print("Socket turned off for now")
+
+while True :
+	if GPIO.input(4) == False :
+		mylcd.lcd_clear()
+		break
 
 while True: 
 	message = "this message is sent to the server"
