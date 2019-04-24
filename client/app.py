@@ -17,6 +17,7 @@ port = 8888
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_UP)	#Button
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)	#Occupancy
 GPIO.setup(24, GPIO.OUT)
 
 
@@ -101,12 +102,15 @@ while True:
 	#print(reply.decode())
 
 	#Button pressed
-	#if GPIO.input(4) == False :
-	#	print("Button Pressed")
-	#	mylcd.lcd_display_string("Btn Pressed", 1, 1)
+	if GPIO.input(4) == False :
+		print("Button Pressed")
+		mylcd.lcd_display_string("Btn Pressed", 1, 1)
 
 	#Room occupied
-	if GPIO.input(4) == True :
+	if GPIO.input(17) == True :
 		print("Occupied")
+		mylcd.lcd_display_string("*", 1, 15)
+	else :
+		mylcd.lcd_display_string(" ", 1, 15)
 
 #s.close() #Closing socket connection, remove later
