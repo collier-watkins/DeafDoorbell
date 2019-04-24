@@ -4,7 +4,7 @@ from wtforms.widgets import html_params, HTMLString
 
 from flask_socketio import SocketIO
 
-import subprocess
+#import subprocess
 
 
 app = Flask(__name__)
@@ -42,7 +42,7 @@ def homePage():	#Returns data for the main home page, should be HTML data
 		 ######Send message to LCD and do GPIO stuff here #########
 
 
-		 subprocess.run()
+		 #subprocess.run()
 
 
 		 #####################
