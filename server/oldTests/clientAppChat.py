@@ -14,7 +14,7 @@ import RPi.GPIO as GPIO
 #autorunning this script using the file /home/pi/.bashrc
 
 
-host = "10.231.235.209"
+host = "10.230.142.162"
 port = 8888
 
 GPIO.setmode(GPIO.BCM)
