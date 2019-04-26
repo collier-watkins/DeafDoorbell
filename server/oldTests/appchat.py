@@ -1,5 +1,7 @@
 import socket, select
 
+import I2C_LCD_driver
+
 def get_pi_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     return socket.inet_ntoa(fcntl.ioctl(
