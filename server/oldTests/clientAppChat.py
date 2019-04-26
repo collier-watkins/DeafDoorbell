@@ -127,7 +127,7 @@ while True:
 		#Attention LED testing
 		GPIO.output(18,0)
 
-	rep++
+	rep += 1
 
 
 
