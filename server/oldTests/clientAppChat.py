@@ -89,7 +89,7 @@ while True:
 
 	rep = 1
 	message = "message #" + str(rep)
-	
+	rep = rep + 1
 
 	# GET MOTION SENSOR AND BUTTON STATUS INFO HERE
 	# PUT IN A STRING
@@ -127,7 +127,6 @@ while True:
 		#Attention LED testing
 		GPIO.output(18,0)
 
-	rep += 1
 
 
 
