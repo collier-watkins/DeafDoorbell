@@ -65,8 +65,8 @@ if __name__ == "__main__":
 					data = sock.recv(RECV_BUFFER)
 					if data :
 						sock.send(("Server got: " + data.decode() ).encode())
-						#print("Client says:" + data.decode())
-						#mylcd.lcd_display_string(data.decode(), 0, 0)
+						print("Client says:" + data.decode())
+						mylcd.lcd_display_string("reply sent", 1, 1)
 				except:
 					broadcast_data(sock, "Client is offline")
 					print("Client is offline (printstatement)")
