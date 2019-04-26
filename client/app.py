@@ -14,7 +14,7 @@ import RPi.GPIO as GPIO
 #autorunning this script using the file /home/pi/.bashrc
 
 
-host = "192.168.0.13"
+host = "10.231.235.209"
 port = 8888
 
 GPIO.setmode(GPIO.BCM)
@@ -50,14 +50,14 @@ mylcd = I2C_LCD_driver.lcd()
 
 mylcd.lcd_clear()
 
-#def setupServer():
-#	try: 
-#		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM);
-#		print("Socket s created.")
-#	except socket.error as msg :
-#		print(msg)
-#		sys.exit()
-#	return s
+def setupServer():
+	try: 
+		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM);
+		print("Socket s created.")
+	except socket.error as msg :
+		print(msg)
+		sys.exit()
+	return s
 
 
 
@@ -69,24 +69,24 @@ print("Current Local IP: " + get_pi_ip_address('wlan0'))
 
 ####### Socket Setup ######################################
 
-#s = setupServer()
+s = setupServer()
 
 #host_ip = socket.gethostbyname(host)
 
-#s.connect((host, port))
+s.connect((host, port))
 
-#print("Socket turned off for now")
+print("Socket connected")
 
-mylcd.lcd_display_string("Tap btn to start", 1, 0)
-mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
+#mylcd.lcd_display_string("Tap btn to start", 1, 0)
+#mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
 
-while True :
-	if GPIO.input(4) == False :
-		mylcd.lcd_clear()
-		break
+#while True :
+#	if GPIO.input(4) == False :
+#		mylcd.lcd_clear()
+#		break
 
 while True: 
-	message = "this message is sent to the server"
+	message = "hi from client"
 	
 
 	# GET MOTION SENSOR AND BUTTON STATUS INFO HERE
@@ -96,18 +96,18 @@ while True:
 	sleep(0.2)
 
 	#Below sends message string
-	#try:
-	#	s.sendall(message.encode())
-	#except:
-	#	print("Did not send message")
-	#	sys.exit()
+	try:
+		s.sendall(message.encode())
+	except:
+		print("Did not send message")
+		sys.exit()
 
-	#print("Message Sent")
+	print("Message Sent")
 
 	#This is what the server sends back. Will contain the message the LCD screen should show
-	#reply = s.recv(4096)	#4096 is the size of the memory received from the socket
+	reply = s.recv(4096)	#4096 is the size of the memory received from the socket
 
-	#print(reply.decode())
+	print(reply.decode())
 
 	#Button pressed
 	if GPIO.input(4) == False :
