@@ -1,6 +1,26 @@
 import socket, select
 
+def get_pi_ip_address(ifname):
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    return socket.inet_ntoa(fcntl.ioctl(
+       s.fileno(),
+       0x8915,  # SIOCGIFADDR
+       struct.pack('256s', ifname[:15])
+   )[20:24])
+
 if __name__ == "__main__":
+
+	mylcd = I2C_LCD_driver.lcd()
+
+	mylcd.lcd_clear()
+
+	print("Starting...")
+	print("Current Local IP: " + get_pi_ip_address('wlan0'))
+
+	mylcd.lcd_display_string("Server", 1, 0)
+	mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
+
+
 
 	CONNECTION_LIST = []
 	RECV_BUFFER = 4096	#4 kb
@@ -13,7 +33,7 @@ if __name__ == "__main__":
 
 	CONNECTION_LIST.append(server_socket)	#Not sure if neccessary
 
-	print("Char server has started on port " + str(PORT))
+	print("Chat server has started on port " + str(PORT))
 
 	while True :
 		#poll here
@@ -24,6 +44,8 @@ if __name__ == "__main__":
 				sockfd, addr = server_socket.accept()
 				CONNECTION_LIST.append(sockfd)
 				print("Client (%s, %s) connected" % addr)
+				mylcd.lcd_display_string("%", 1, 15)
+
 
 			else :
 				try:

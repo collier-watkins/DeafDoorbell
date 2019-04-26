@@ -75,19 +75,20 @@ s = setupServer()
 
 s.connect((host, port))
 
-#print("Socket turned off for now")
+print("Socket connected")
 
-#mylcd.lcd_display_string("Tap btn to start", 1, 0)
-#mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
+mylcd.lcd_display_string("Tap btn to start", 1, 0)
+mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
 
-#while True :
-#	if GPIO.input(4) == False :
-mylcd.lcd_clear()
-#		break
+while True :
+	if GPIO.input(4) == False :
+		mylcd.lcd_clear()
+		break
 
 while True: 
 
-	message = raw_input("Type message here: ")
+	rep = 1
+	message = "message #" + str(rep)
 	
 
 	# GET MOTION SENSOR AND BUTTON STATUS INFO HERE
@@ -125,6 +126,8 @@ while True:
 		mylcd.lcd_display_string(" ", 1, 15)
 		#Attention LED testing
 		GPIO.output(18,0)
+
+	rep++
 
 
 
