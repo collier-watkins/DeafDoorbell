@@ -87,7 +87,7 @@ mylcd.lcd_clear()
 
 while True: 
 
-	message = input("Type message here: ")
+	message = raw_input("Type message here: ")
 	
 
 	# GET MOTION SENSOR AND BUTTON STATUS INFO HERE
