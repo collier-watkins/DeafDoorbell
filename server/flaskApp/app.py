@@ -27,23 +27,23 @@ UpstairsBathroom = False
 
 
 
-def get_pi_ip_address(ifname):
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    return socket.inet_ntoa(fcntl.ioctl(
-        s.fileno(),
-        0x8915,  # SIOCGIFADDR
-        struct.pack('256s', ifname[:15])
-    )[20:24])
+#def get_pi_ip_address(ifname):
+#    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#    return socket.inet_ntoa(fcntl.ioctl(
+#        s.fileno(),
+#        0x8915,  # SIOCGIFADDR
+#        struct.pack('256s', ifname[:15])
+#   )[20:24])
 
-mylcd = I2C_LCD_driver.lcd()
+#mylcd = I2C_LCD_driver.lcd()
 
-mylcd.lcd_clear()
+#mylcd.lcd_clear()
 
 print("Starting...")
-print("Current Local IP: " + get_pi_ip_address('wlan0'))
+#print("Current Local IP: " + get_pi_ip_address('wlan0'))
 
-mylcd.lcd_display_string("Server", 1, 0)
-mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
+#mylcd.lcd_display_string("Server", 1, 0)
+#mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
 
 
 
@@ -51,7 +51,7 @@ mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
 @app.route("/", methods=['GET', 'POST'])	#Related to website locations
 def homePage():	#Returns data for the main home page, should be HTML data
 
-	mylcd.lcd_display_string("*", 1, 15)
+	#mylcd.lcd_display_string("*", 1, 15)
 
 
 	form = MessageForm()
@@ -77,8 +77,7 @@ def homePage():	#Returns data for the main home page, should be HTML data
 
 		 ######Send message to LCD and do GPIO stuff here #########
 
-
-		 #subprocess.run()
+		 
 		 
 
 		 #####################

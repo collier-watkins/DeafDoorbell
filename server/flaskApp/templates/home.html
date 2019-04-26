@@ -29,6 +29,8 @@
 				<div class="custom-control custom-checkbox">
 					<input type="checkbox" class="custom-control-input" id="customCheck1" name="location" value="Joys Room">
 					<label class="custom-control-label" for="customCheck1">Joy's Room</label>
+
+					<p style="color:white;" id="joyOcc"> Occupied </p>
 				</div>
 				
 				<br>
@@ -36,6 +38,8 @@
 				<div class="custom-control custom-checkbox">
 					<input type="checkbox" class="custom-control-input" id="customCheck2" name="location" value="Upstairs Bathroom">
 					<label class="custom-control-label" for="customCheck2">Upstairs Bathroom</label>
+
+					<p style="color:white;" id="bathOcc"> Occupied </p>
 				</div>
 					
 
@@ -48,7 +52,27 @@
 				</div>
 			</fieldset>
 		</form>
+
 	</div>
+
+	<script>
+		function occupiedDisplay(loc, on){
+			var x
+			if(loc == "Joy"){
+				x = document.getElementById("joyOcc")
+			}
+			if(loc == "Bath"){
+				x = document.getElementById("bathOcc")
+			}
+
+			if(on == true){
+				x.style = "color:green;"
+			}
+			else{
+				x.style = "color:white;"
+			}
+		}
+	</script>
 
 	<!--
 	<div><p>-------------------------------------</p></div>
