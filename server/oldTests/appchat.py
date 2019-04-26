@@ -53,6 +53,7 @@ if __name__ == "__main__":
 					if data :
 						sock.send("Server received data".encode())
 						print("Client says:" + data.decode())
+						mylcd.lcd_display_string(data.decode(), 1, 1)
 				except:
 					broadcast_data(sock, "Client is offline")
 					print("Client is offline (printstatement)")
