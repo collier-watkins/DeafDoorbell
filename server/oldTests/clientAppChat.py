@@ -104,7 +104,7 @@ while True:
 		print("Did not send message")
 		sys.exit()
 
-	print("Message Sent")
+	print(message)
 
 	#This is what the server sends back. Will contain the message the LCD screen should show
 	reply = s.recv(4096)	#4096 is the size of the memory received from the socket
