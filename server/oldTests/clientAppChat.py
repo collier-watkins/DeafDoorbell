@@ -85,16 +85,15 @@ while True :
 		mylcd.lcd_clear()
 		break
 
+rep = 1
 while True: 
 
-	rep = 1
 	message = "message #" + str(rep)
 	rep = rep + 1
 
 	# GET MOTION SENSOR AND BUTTON STATUS INFO HERE
 	# PUT IN A STRING
 	
-
 	sleep(0.2)
 
 	#Below sends message string
