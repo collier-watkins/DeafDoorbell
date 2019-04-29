@@ -25,7 +25,7 @@ host_port = 80
 
 mylcd = I2C_LCD_driver.lcd()
 
-ipAddr = IPAddress()
+#ipAddr = IPAddress()
 
 lcdClearLine = "                "
 
