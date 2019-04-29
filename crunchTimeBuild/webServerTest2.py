@@ -11,8 +11,7 @@ import I2C_LCD_driver
 
 #from urlparse import urlparse
 def getIP(obj):
-  return os.popen("ifconfig " + obj + " | grep 'inet addr' | awk -F: '{print $2}' | awk '{print $1}'").read()
-
+  return os.popen("ifconfig wlan0 | grep 'inet'").split(' ')[1]
 
 host_name = ''  # Change this to your Raspberry Pi IP address
 host_port = 80
