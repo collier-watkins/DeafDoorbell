@@ -64,7 +64,7 @@ def setupServer():
 ###### LCD Setup #############
 print("Starting...")
 print("Current Local IP: " + get_pi_ip_address('wlan0'))
-
+mylcd.lcd_display_string("Booting...", 1, 0)
 
 
 ####### Socket Setup ######################################
