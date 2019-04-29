@@ -6,7 +6,7 @@ import fcntl
 import struct
 
 import sys
-from thread import *
+from _thread import *
 
 from time import *
 
@@ -20,8 +20,8 @@ import socketserver
 webPORT = 80
 Handler = http.server.SimpleHTTPRequestHandler
 
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print("web serving at port", PORT)
+with socketserver.TCPServer(("", webPORT), Handler) as httpd:
+    print("web serving at port", webPORT)
     httpd.serve_forever()
 
 
