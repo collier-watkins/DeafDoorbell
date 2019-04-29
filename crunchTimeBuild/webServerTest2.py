@@ -72,7 +72,7 @@ class MyServer(BaseHTTPRequestHandler):
 
 
 
-        self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
+        #self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
 
 if __name__ == '__main__':
