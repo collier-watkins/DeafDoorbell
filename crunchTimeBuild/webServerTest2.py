@@ -14,6 +14,8 @@ def getIP(obj):
   p = os.popen("ifconfig wlan0 | grep 'inet'")
   processed = p.read()
   p.close()
+  processed = processed.split(' ')
+  processed = processed[1]
   print(processed)
   return processed
 
