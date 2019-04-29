@@ -56,7 +56,9 @@ class MyServer(BaseHTTPRequestHandler):
             #GPIO.output(18, GPIO.LOW)
             #status='LED is Off'
             mylcd.lcd_display_string("o", 1, 15)
-
+        elif self.path.startswith('/sub/'):
+          print(self.path)
+          mylcd.lcd_display_string("s", 1, 15)
 
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
