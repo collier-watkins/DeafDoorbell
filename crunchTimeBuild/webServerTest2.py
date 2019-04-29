@@ -12,6 +12,17 @@ host_port = 80
 
 mylcd = I2C_LCD_driver.lcd()
 
+lcdClearLine = "                "
+
+def get_pi_ip_address(ifname):
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    return socket.inet_ntoa(fcntl.ioctl(
+       s.fileno(),
+       0x8915,  # SIOCGIFADDR
+       struct.pack('256s', ifname[:15])
+   )[20:24])
+
+
 
 class MyServer(BaseHTTPRequestHandler):
     """ A special implementation of BaseHTTPRequestHander for reading data from
@@ -46,20 +57,21 @@ class MyServer(BaseHTTPRequestHandler):
             mylcd.lcd_display_string("r", 1, 15)
 
 
-        elif self.path=='/on':
+        #elif self.path=='/on':
             #GPIO.output(18, GPIO.HIGH)
             #status='LED is On'
-            mylcd.lcd_display_string("*", 1, 15)
+        #    mylcd.lcd_display_string("*", 1, 15)
 
 
-        elif self.path=='/off':
+        #elif self.path=='/off':
             #GPIO.output(18, GPIO.LOW)
             #status='LED is Off'
-            mylcd.lcd_display_string("o", 1, 15)
+        #    mylcd.lcd_display_string("o", 1, 15)
         elif self.path.startswith('/sub/'):
           #print(self.path)
           msg = self.path[5:].replace("_", " ")
           print(msg)
+          mylcd.lcd_display_string(lcdClearLine, 2, 0)
           mylcd.lcd_display_string(msg, 2, 0)
 
 
@@ -77,6 +89,7 @@ if __name__ == '__main__':
 
 
     mylcd.lcd_display_string("Server", 1, 0)
+    mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
 
     try:
         http_server.serve_forever()
