@@ -86,8 +86,10 @@ if __name__ == '__main__':
 
     ip = check_output(['hostname', '--all-ip-addresses'])
     mylcd.lcd_display_string("Server", 1, 0)
-    mylcd.lcd_display_string(ip, 2, 0)
+
     print(ip)
+    mylcd.lcd_display_string(ip, 2, 0)
+    
 
     try:
         http_server.serve_forever()
