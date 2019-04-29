@@ -5,9 +5,9 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 # HTTPRequestHandler class
 class testHTTPServer_RequestHandler(BaseHTTPRequestHandler):
  
-  #def openPage(self, filename):
-  #	with open(filename) as f:
-  #		return f.read()
+  def openPage(self, filename):
+  	with open(filename) as f:
+  		return f.read()
 
   # GET
   def do_GET(self):
@@ -19,8 +19,8 @@ class testHTTPServer_RequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
  
         # Send message back to client
-        #message = self.openPage("index.html")
-        message = "Howdy"
+        message = self.openPage("index.html")
+        #message = "Howdy"
         # Write content as utf-8 data
         self.wfile.write(bytes(message, "utf8"))
         return
