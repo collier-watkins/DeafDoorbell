@@ -5,7 +5,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 import I2C_LCD_driver
 
-from urlparse import urlparse
+#from urlparse import urlparse
 
 host_name = ''  # Change this to your Raspberry Pi IP address
 host_port = 80
