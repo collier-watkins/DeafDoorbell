@@ -84,7 +84,7 @@ if __name__ == '__main__':
 
     mylcd.lcd_clear()
 
-    ip = check_output(['hostname', '--all-ip-addresses'])
+    ip = check_output(['hostname', '--all-ip-addresses']).decode("utf-8") 
     mylcd.lcd_display_string("Server", 1, 0)
 
     print(ip)
