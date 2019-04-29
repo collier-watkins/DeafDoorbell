@@ -5,6 +5,8 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 import I2C_LCD_driver
 
+from urlparse import urlparse
+
 host_name = ''  # Change this to your Raspberry Pi IP address
 host_port = 80
 
@@ -33,6 +35,7 @@ class MyServer(BaseHTTPRequestHandler):
             'curl http://server-ip-address:port'
         """
         html = self.openPage("index.html")
+        print(html)
         temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
         self.do_HEAD()
         status = ''
@@ -40,15 +43,21 @@ class MyServer(BaseHTTPRequestHandler):
             #GPIO.setmode(GPIO.BCM)
             #GPIO.setwarnings(False)
             #GPIO.setup(18, GPIO.OUT)
-            mylcd.lcd_display_string("r", 2, 2)
+            mylcd.lcd_display_string("r", 1, 15)
+
+
         elif self.path=='/on':
             #GPIO.output(18, GPIO.HIGH)
             #status='LED is On'
-            mylcd.lcd_display_string("on", 2, 2)
+            mylcd.lcd_display_string("*", 1, 15)
+
+
         elif self.path=='/off':
             #GPIO.output(18, GPIO.LOW)
             #status='LED is Off'
-            mylcd.lcd_display_string("off", 2, 2)
+            mylcd.lcd_display_string("o", 1, 15)
+
+
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
 
