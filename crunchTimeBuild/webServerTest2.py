@@ -16,6 +16,10 @@ class MyServer(BaseHTTPRequestHandler):
         and control GPIO of a Raspberry Pi
     """
 
+    def openPage(self, filename):
+    with open(filename) as f:
+      return f.read()
+
     def do_HEAD(self):
         """ do_HEAD() can be tested use curl command
             'curl -I http://server-ip-address:port'
@@ -28,19 +32,7 @@ class MyServer(BaseHTTPRequestHandler):
         """ do_GET() can be tested using curl command
             'curl http://server-ip-address:port'
         """
-        html = '''
-           <html>
-           <body style="width:960px; margin: 20px auto;">
-           <h1>Welcome to my Raspberry Pi</h1>
-           <p>Current GPU temperature is {}</p>
-           <p>Turn LED: <a href="/on">On</a> <a href="/off">Off</a></p>
-           <div id="led-status"></div>
-           <script>
-               document.getElementById("led-status").innerHTML="{}";
-           </script>
-           </body>
-           </html>
-        '''
+        html = self.openPage("index.html")
         temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
         self.do_HEAD()
         status = ''
@@ -48,15 +40,15 @@ class MyServer(BaseHTTPRequestHandler):
             #GPIO.setmode(GPIO.BCM)
             #GPIO.setwarnings(False)
             #GPIO.setup(18, GPIO.OUT)
-            mylcd.lcd_display_string("r", 1, 1)
+            mylcd.lcd_display_string("r", 2, 2)
         elif self.path=='/on':
             #GPIO.output(18, GPIO.HIGH)
             #status='LED is On'
-            mylcd.lcd_display_string("on", 1, 1)
+            mylcd.lcd_display_string("on", 2, 2)
         elif self.path=='/off':
             #GPIO.output(18, GPIO.LOW)
             #status='LED is Off'
-            mylcd.lcd_display_string("off", 1, 0)
+            mylcd.lcd_display_string("off", 2, 2)
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
 

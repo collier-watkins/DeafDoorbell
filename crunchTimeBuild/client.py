@@ -127,8 +127,4 @@ while True:
 		GPIO.output(18,0)
 
 
-
-
-
-
 s.close() #Closing socket connection, remove later
