@@ -58,7 +58,7 @@ class MyServer(BaseHTTPRequestHandler):
             mylcd.lcd_display_string("o", 1, 15)
         elif self.path.startswith('/sub/'):
           #print(self.path)
-          msg = self.path[5].replace("_", " ")
+          msg = self.path[:5].replace("_", " ")
           print(msg)
           mylcd.lcd_display_string(msg, 2, 0)
 
