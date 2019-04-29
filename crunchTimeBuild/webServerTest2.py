@@ -8,6 +8,8 @@ import I2C_LCD_driver
 host_name = ''  # Change this to your Raspberry Pi IP address
 host_port = 80
 
+mylcd = I2C_LCD_driver.lcd()
+
 
 class MyServer(BaseHTTPRequestHandler):
     """ A special implementation of BaseHTTPRequestHander for reading data from
@@ -61,6 +63,11 @@ class MyServer(BaseHTTPRequestHandler):
 if __name__ == '__main__':
     http_server = HTTPServer((host_name, host_port), MyServer)
     print("Server Starts - %s:%s" % (host_name, host_port))
+
+    
+
+    mylcd.lcd_clear()
+
 
     mylcd.lcd_display_string("Server", 1, 0)
 
