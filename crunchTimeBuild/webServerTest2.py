@@ -3,6 +3,10 @@ import os
 from time import sleep
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
+import socket
+import fcntl
+import struct
+
 import I2C_LCD_driver
 
 #from urlparse import urlparse
