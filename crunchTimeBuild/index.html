@@ -40,20 +40,30 @@
 		+ '/msg/' + document.getElementById('msg').value.replace(/ /g,'_')
 		" >Submit</a>
 		-->
-		<a onclick="this.href=(function(){
-			var URL = ''
-			if(document.getElementById('joyCheck').checked = true){
-				URL += '/joyCheck'
+		
+		<input
+			id="subButton"
+			type="button"
+			value="clickme"
+			onclick="goURL();"
+		/>
+
+		<script type="text/javascript">
+			function goURL(){
+				var URL = ''
+				if(document.getElementById('joyCheck').checked = true){
+					URL += '/joyCheck'
+				}
+				if(document.getElementById('upstairsCheck').checked = true){
+					URL += '/upstairsCheck'
+				}
+
+				URL += '/msg/' + document.getElementById('msg').value.replace(/ /g,'_')
+
+				window.location.href = URL
 			}
-			if(document.getElementById('upstairsCheck').checked = true){
-				URL += '/upstairsCheck'
-			}
 
-			URL += '/msg/' + document.getElementById('msg').value.replace(/ /g,'_')
-
-			return URL
-		})()"> Submit </a>
-
+		</script>
 
 	</body>
 </html>
