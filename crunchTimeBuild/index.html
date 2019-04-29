@@ -1,4 +1,25 @@
 <html>
+	<head>
+
+	 	<!-- Required meta tags -->
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	    <!-- Importing custom CSS -->
+	    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}} ">
+
+	    <!-- Custom Toggle -->
+	    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+		<title>Doorbell Messenger</title>
+
+	    
+	    
+	    
+	</head>
 	<body style="width:960px; margin: 20px auto;">
 		<h1>Doorbell</h1>
 		<!--
@@ -13,6 +34,22 @@
 
 		Message: <input type="text" id="msg"><br>
 
+		<div class="custom-control custom-checkbox">
+					<input type="checkbox" class="custom-control-input" id="customCheck1" name="location" value="Joys Room">
+					<label class="custom-control-label" for="customCheck1">Joy's Room</label>
+
+					<p style="color:white;" id="joyOcc"> Occupied </p>
+				</div>
+				
+				<br>
+
+				<div class="custom-control custom-checkbox">
+					<input type="checkbox" class="custom-control-input" id="customCheck2" name="location" value="Upstairs Bathroom">
+					<label class="custom-control-label" for="customCheck2">Upstairs Bathroom</label>
+
+					<p style="color:white;" id="bathOcc"> Occupied </p>
+				</div>
+
 
 		<h2> <a href=""
 			onclick=" this.href='/sub/' + document.getElementById('msg').value.replace(/ /g,'_')" >Submit</a> </h2>
@@ -20,5 +57,11 @@
 		<script>
 			document.getElementById("led-status").innerHTML="{}";
 		</script>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 	</body>
 </html>
