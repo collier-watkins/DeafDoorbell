@@ -58,7 +58,10 @@ class MyServer(BaseHTTPRequestHandler):
             mylcd.lcd_display_string("o", 1, 15)
         elif self.path.startswith('/sub/'):
           print(self.path)
-          mylcd.lcd_display_string("s", 1, 15)
+          msg = self.path[5].replace("_", " ")
+          mylcd.lcd_display_string(msg, 2, 0)
+
+
 
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
