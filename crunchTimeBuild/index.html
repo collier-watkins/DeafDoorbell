@@ -13,7 +13,7 @@
 		<div id="led-status"></div>
 
 		<h2> <a href=""
-			onclick=" this.href='/sub/' + document.getElementById('msg').value" >Submit</a> </h2>
+			onclick=" this.href='/sub/' + document.getElementById('msg').value.replace(/ /g,'_')" >Submit</a> </h2>
 		
 		<script>
 			document.getElementById("led-status").innerHTML="{}";
