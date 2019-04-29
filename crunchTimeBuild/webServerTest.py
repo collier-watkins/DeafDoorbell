@@ -63,17 +63,18 @@ def run():
   httpd = HTTPServer(server_address, testHTTPServer_RequestHandler)
   print('running server...')
   httpd.serve_forever()
- 
+
+    ##### LCD Code Here
+  mylcd = I2C_LCD_driver.lcd()
+
+  mylcd.lcd_clear()
+
+  print("Starting...")
+  print("Current Local IP: " + get_pi_ip_address('wlan0'))
+
+  mylcd.lcd_display_string("Server", 1, 0)
+  mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
+   
  
 run()
 
-##### LCD Code Here
-mylcd = I2C_LCD_driver.lcd()
-
-mylcd.lcd_clear()
-
-print("Starting...")
-print("Current Local IP: " + get_pi_ip_address('wlan0'))
-
-mylcd.lcd_display_string("Server", 1, 0)
-mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
