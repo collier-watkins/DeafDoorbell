@@ -40,7 +40,7 @@
 		+ '/msg/' + document.getElementById('msg').value.replace(/ /g,'_')
 		" >Submit</a>
 		-->
-		<a type="button" onclick="this.href=createURL(){
+		<a onclick="this.href=(function(){
 			var URL = ''
 			if(document.getElementById('joyCheck').checked = true){
 				URL += '/joyCheck'
@@ -52,7 +52,7 @@
 			URL += '/msg/' + document.getElementById('msg').value.replace(/ /g,'_')
 
 			return URL
-		}"> Submit </a>
+		})()"> Submit </a>
 
 
 	</body>
