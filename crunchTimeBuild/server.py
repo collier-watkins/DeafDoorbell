@@ -12,6 +12,21 @@ from time import *
 
 import RPi.GPIO as GPIO
 
+import http.server
+import socketserver
+
+# Web Server Portion #################
+
+webPORT = 80
+Handler = http.server.SimpleHTTPRequestHandler
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("web serving at port", PORT)
+    httpd.serve_forever()
+
+
+######################################
+
 
 def get_pi_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
