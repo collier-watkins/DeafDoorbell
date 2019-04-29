@@ -87,9 +87,10 @@ if __name__ == '__main__':
 
     mylcd.lcd_clear()
 
-
+    ip = getIP("wlan0")
     mylcd.lcd_display_string("Server", 1, 0)
-    mylcd.lcd_display_string(getIP("wlan0"), 2, 0)
+    mylcd.lcd_display_string(ip, 2, 0)
+    print(ip)
 
     try:
         http_server.serve_forever()
