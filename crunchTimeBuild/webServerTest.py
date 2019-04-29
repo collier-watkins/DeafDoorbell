@@ -64,7 +64,7 @@ def run():
   print('running server...')
   httpd.serve_forever()
 
-    ##### LCD Code Here
+  ##### LCD Code Here
   mylcd = I2C_LCD_driver.lcd()
 
   mylcd.lcd_clear()
