@@ -46,7 +46,7 @@ class testHTTPServer_RequestHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type','text/html')
         self.end_headers()
  
-        # Send message back to client
+        # Send mesage back to client
         message = self.openPage("index.html")
         #message = "Howdy"
         # Write content as utf-8 data
