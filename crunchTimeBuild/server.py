@@ -6,7 +6,7 @@ import fcntl
 import struct
 
 import sys
-from _thread import *
+from thread import *
 
 from time import *
 
