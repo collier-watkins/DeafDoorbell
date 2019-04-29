@@ -17,8 +17,8 @@ class MyServer(BaseHTTPRequestHandler):
     """
 
     def openPage(self, filename):
-    with open(filename) as f:
-      return f.read()
+      with open(filename) as f:
+        return f.read()
 
     def do_HEAD(self):
         """ do_HEAD() can be tested use curl command
