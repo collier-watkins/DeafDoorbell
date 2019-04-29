@@ -35,29 +35,34 @@
 		Message: <input type="text" id="msg"><br>
 
 		<div class="custom-control custom-checkbox">
-					<input type="checkbox" class="custom-control-input" id="customCheck1" name="location" value="Joys Room">
-					<label class="custom-control-label" for="customCheck1">Joy's Room</label>
+			<input type="checkbox" class="custom-control-input" id="customCheck1" name="location" value="Joys Room">
+			<label class="custom-control-label" for="customCheck1">Joy's Room</label>
 
-					<p style="color:white;" id="joyOcc"> Occupied </p>
-				</div>
+			<p style="color:white;" id="joyOcc"> Occupied </p>
+		</div>
 				
-				<br>
+		<br>
 
-				<div class="custom-control custom-checkbox">
-					<input type="checkbox" class="custom-control-input" id="customCheck2" name="location" value="Upstairs Bathroom">
-					<label class="custom-control-label" for="customCheck2">Upstairs Bathroom</label>
+		<div class="custom-control custom-checkbox">
+			<input type="checkbox" class="custom-control-input" id="customCheck2" name="location" value="Upstairs Bathroom">
+			<label class="custom-control-label" for="customCheck2">Upstairs Bathroom</label>
 
-					<p style="color:white;" id="bathOcc"> Occupied </p>
-				</div>
+			<p style="color:white;" id="bathOcc"> Occupied </p>
+		</div>
 
 
-		<h2> <a href=""
-			onclick=" this.href='/sub/' + document.getElementById('msg').value.replace(/ /g,'_')" >Submit</a> </h2>
+		<h2>
+			<a href=""
+			onclick=" this.href='/sub/' + document.getElementById('msg').value.replace(/ /g,'_')" >Submit</a>
+		</h2>
 		
 		<script>
 			document.getElementById("led-status").innerHTML="{}";
 		</script>
 
+
+
+		<!-- bootstrap below --->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
