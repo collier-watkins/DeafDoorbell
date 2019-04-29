@@ -13,15 +13,10 @@
 		<div id="led-status"></div>
 
 		<h2> <a href=""
-			onclick=" this.href='/sub/' + formatMsg(document.getElementById('msg').value)" >Submit</a> </h2>
+			onclick=" this.href='/sub/' + document.getElementById('msg').value" >Submit</a> </h2>
 		
 		<script>
 			document.getElementById("led-status").innerHTML="{}";
-		</script>
-		<script>
-			function formatMsg(rawMsg){
-				return "test+blah"
-			}
 		</script>
 	</body>
 </html>
