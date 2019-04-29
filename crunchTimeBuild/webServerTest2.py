@@ -9,14 +9,7 @@ import struct
 
 import I2C_LCD_driver
 
-def get_ip_address(ifname):
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    return socket.inet_ntoa(fcntl.ioctl(
-        s.fileno(),
-        0x8915,  # SIOCGIFADDR
-        struct.pack('256s', ifname[:15])
-    )[20:24])
-
+from subprocess import check_output
 
 host_name = ''  # Change this to your Raspberry Pi IP address
 host_port = 80
@@ -91,7 +84,7 @@ if __name__ == '__main__':
 
     mylcd.lcd_clear()
 
-    ip = get_ip_address('wlan0')
+    ip = check_output(['hostname', '--all-ip-addresses'])
     mylcd.lcd_display_string("Server", 1, 0)
     mylcd.lcd_display_string(ip, 2, 0)
     print(ip)
