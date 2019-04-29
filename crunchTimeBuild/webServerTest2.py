@@ -10,14 +10,8 @@ import struct
 import I2C_LCD_driver
 
 #from urlparse import urlparse
-
-def get_pi_ip_address(ifname):
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    return socket.inet_ntoa(fcntl.ioctl(
-       s.fileno(),
-       0x8915,  # SIOCGIFADDR
-       struct.pack(b'256', ifname[:15])
-   )[20:24])
+def getIP(obj):
+  return os.popen("ifconfig " + obj + " | grep 'inet addr' | awk -F: '{print $2}' | awk '{print $1}'").read()
 
 
 host_name = ''  # Change this to your Raspberry Pi IP address
@@ -95,7 +89,7 @@ if __name__ == '__main__':
 
 
     mylcd.lcd_display_string("Server", 1, 0)
-    mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
+    mylcd.lcd_display_string(getIP("wlan0"), 2, 0)
 
     try:
         http_server.serve_forever()
