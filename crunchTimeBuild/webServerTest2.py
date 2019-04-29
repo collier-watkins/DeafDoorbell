@@ -50,7 +50,7 @@ class MyServer(BaseHTTPRequestHandler):
             #GPIO.setmode(GPIO.BCM)
             #GPIO.setwarnings(False)
             #GPIO.setup(18, GPIO.OUT)
-            mylcd.lcd_display_string("r", 1, 15)
+            mylcd.lcd_display_string("*", 1, 15)
 
 
         #elif self.path=='/on':
@@ -66,7 +66,7 @@ class MyServer(BaseHTTPRequestHandler):
         elif self.path.startswith('/sub/'):
           #print(self.path)
           msg = self.path[5:].replace("_", " ")
-          print(msg)
+          print("'" + msg + "'")
           mylcd.lcd_display_string(lcdClearLine, 2, 0)
           mylcd.lcd_display_string(msg, 2, 0)
 
@@ -86,7 +86,7 @@ if __name__ == '__main__':
     ip = check_output(['hostname', '--all-ip-addresses']).decode("utf-8").strip()
     mylcd.lcd_display_string("Server", 1, 0)
 
-    print(ip)
+    print("'" + ip + "'")
     mylcd.lcd_display_string(ip, 2, 0)
     
 
