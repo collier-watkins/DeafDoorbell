@@ -1,6 +1,34 @@
 #!/usr/bin/env python
  
 from http.server import BaseHTTPRequestHandler, HTTPServer
+
+
+########## Rapsberry Pi and LCD Imports #############
+import socket, select
+
+import I2C_LCD_driver
+
+import fcntl
+import struct
+
+import sys
+from _thread import *
+
+from time import *
+
+import RPi.GPIO as GPIO
+#####################################################
+
+def get_pi_ip_address(ifname):
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    return socket.inet_ntoa(fcntl.ioctl(
+       s.fileno(),
+       0x8915,  # SIOCGIFADDR
+       struct.pack('256s', ifname[:15])
+   )[20:24])
+
+
+
  
 # HTTPRequestHandler class
 class testHTTPServer_RequestHandler(BaseHTTPRequestHandler):
@@ -38,3 +66,14 @@ def run():
  
  
 run()
+
+##### LCD Code Here
+mylcd = I2C_LCD_driver.lcd()
+
+mylcd.lcd_clear()
+
+print("Starting...")
+print("Current Local IP: " + get_pi_ip_address('wlan0'))
+
+mylcd.lcd_display_string("Server", 1, 0)
+mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
