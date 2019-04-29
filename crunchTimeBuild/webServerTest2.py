@@ -43,7 +43,6 @@ class MyServer(BaseHTTPRequestHandler):
             'curl http://server-ip-address:port'
         """
         html = self.openPage("index.html")
-        print(html)
         temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
         self.do_HEAD()
         status = ''
