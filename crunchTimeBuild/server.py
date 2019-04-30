@@ -60,6 +60,9 @@ class MyServer(BaseHTTPRequestHandler):
 			mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			mylcd.lcd_display_string(msg, 2, 0)
 
+		elif self.path=='/flavicon.ico':
+			print("flavicon.ico")
+
 		else :
 			print("Exeption: Bad URL")
 			mylcd.lcd_display_string(lcdClearLine, 2, 0)
