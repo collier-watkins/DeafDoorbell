@@ -53,12 +53,6 @@ class MyServer(BaseHTTPRequestHandler):
 		if self.path=='/':
 			mylcd.lcd_display_string("*", 1, 15)
 
-		elif self.path.startswith('/sub/'):
-			#print(self.path)
-			msg = self.path[5:].replace("_", " ")
-			print("'" + msg + "'")
-			mylcd.lcd_display_string(lcdClearLine, 2, 0)
-			mylcd.lcd_display_string(msg, 2, 0)
 
 		elif '/msg/' in self.path :
 			arr = self.path.split("/")
@@ -90,17 +84,19 @@ if __name__ == '__main__':
 	print("Server Starts - %s:%s" % (host_name, host_port))
 
 	############ Socket to client setup ############
-	CONNECTION_LIST = []
-	RECV_BUFFER = 4096	#4 kb
-	PORT = 8888
+	try :
+		CONNECTION_LIST = []
+		RECV_BUFFER = 4096	#4 kb
+		PORT = 8888
 
-	server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-	server_socket.bind(("", PORT))
-	server_socket.listen(10)	#up to 10 connections
+		server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+		server_socket.bind(("", PORT))
+		server_socket.listen(10)	#up to 10 connections
 
-	CONNECTION_LIST.append(server_socket)	#Not sure if neccessary
-
+		CONNECTION_LIST.append(server_socket)	#Not sure if neccessary
+	except:
+		print("Client socket connection failed")
 	####################################################################
 
 	mylcd = I2C_LCD_driver.lcd()
