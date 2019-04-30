@@ -80,10 +80,10 @@ class MyServer(BaseHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-    http_server = HTTPServer((host_name, host_port), MyServer)
-    print("Server Starts - %s:%s" % (host_name, host_port))
+	http_server = HTTPServer((host_name, host_port), MyServer)
+	print("Server Starts - %s:%s" % (host_name, host_port))
 
-    ############ Socket to client setup ############
+	############ Socket to client setup ############
 	CONNECTION_LIST = []
 	RECV_BUFFER = 4096	#4 kb
 	PORT = 8888
@@ -95,18 +95,18 @@ if __name__ == '__main__':
 
 	CONNECTION_LIST.append(server_socket)	#Not sure if neccessary
 
-    ####################################################################
+	####################################################################
 
-    mylcd.lcd_clear()
+	mylcd.lcd_clear()
 
-    
-    mylcd.lcd_display_string("Server", 1, 0)
 
-    print("'" + myIP + "'")
-    mylcd.lcd_display_string(myIP, 2, 0)
-    
+	mylcd.lcd_display_string("Server", 1, 0)
 
-    try:
-        http_server.serve_forever()
-    except KeyboardInterrupt:
-        http_server.server_close()
+	print("'" + myIP + "'")
+	mylcd.lcd_display_string(myIP, 2, 0)
+
+
+	try:
+	    http_server.serve_forever()
+	except KeyboardInterrupt:
+	    http_server.server_close()
