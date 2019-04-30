@@ -51,19 +51,18 @@ class MyServer(BaseHTTPRequestHandler):
         self.do_HEAD()
         status = ''
         if self.path=='/':
-
-            mylcd.lcd_display_string("*", 1, 15)
+			mylcd.lcd_display_string("*", 1, 15)
 
         elif self.path.startswith('/sub/'):
-          #print(self.path)
-          msg = self.path[5:].replace("_", " ")
-          print("'" + msg + "'")
-          mylcd.lcd_display_string(lcdClearLine, 2, 0)
-          mylcd.lcd_display_string(msg, 2, 0)
-
-        else :
-        	mylcd.lcd_display_string(lcdClearLine, 2, 0)
-          	mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
+			#print(self.path)
+			msg = self.path[5:].replace("_", " ")
+			print("'" + msg + "'")
+			mylcd.lcd_display_string(lcdClearLine, 2, 0)
+			mylcd.lcd_display_string(msg, 2, 0)
+			
+		else :
+			mylcd.lcd_display_string(lcdClearLine, 2, 0)
+			mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
 
 
 
