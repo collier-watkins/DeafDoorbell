@@ -14,7 +14,7 @@ from subprocess import check_output
 host_name = ''  # Change this to your Raspberry Pi IP address
 host_port = 80
 
-mylcd = I2C_LCD_driver.lcd()
+#mylcd = I2C_LCD_driver.lcd()
 
 lcdClearLine = "                "
 
