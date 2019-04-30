@@ -51,22 +51,9 @@ class MyServer(BaseHTTPRequestHandler):
         self.do_HEAD()
         status = ''
         if self.path=='/':
-            #GPIO.setmode(GPIO.BCM)
-            #GPIO.setwarnings(False)
-            #GPIO.setup(18, GPIO.OUT)
+
             mylcd.lcd_display_string("*", 1, 15)
 
-
-        #elif self.path=='/on':
-            #GPIO.output(18, GPIO.HIGH)
-            #status='LED is On'
-        #    mylcd.lcd_display_string("*", 1, 15)
-
-
-        #elif self.path=='/off':
-            #GPIO.output(18, GPIO.LOW)
-            #status='LED is Off'
-        #    mylcd.lcd_display_string("o", 1, 15)
         elif self.path.startswith('/sub/'):
           #print(self.path)
           msg = self.path[5:].replace("_", " ")
