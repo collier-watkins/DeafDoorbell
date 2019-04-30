@@ -24,49 +24,49 @@ myIP = check_output(['hostname', '--all-ip-addresses']).decode("utf-8").strip()
 
 
 class MyServer(BaseHTTPRequestHandler):
-    """ A special implementation of BaseHTTPRequestHander for reading data from
-        and control GPIO of a Raspberry Pi
-    """
+	""" A special implementation of BaseHTTPRequestHander for reading data from
+		and control GPIO of a Raspberry Pi
+	"""
 
-    def openPage(self, filename):
-      with open(filename) as f:
-        return f.read()
+	def openPage(self, filename):
+	  with open(filename) as f:
+		return f.read()
 
-    def do_HEAD(self):
-        """ do_HEAD() can be tested use curl command
-            'curl -I http://server-ip-address:port'
-        """
-        self.send_response(200)
-        self.send_header('Content-type', 'text/html')
-        self.end_headers()
+	def do_HEAD(self):
+		""" do_HEAD() can be tested use curl command
+			'curl -I http://server-ip-address:port'
+		"""
+		self.send_response(200)
+		self.send_header('Content-type', 'text/html')
+		self.end_headers()
 
 
-    ### This runs when someone gets connected
-    def do_GET(self):
-        """ do_GET() can be tested using curl command
-            'curl http://server-ip-address:port'
-        """
-        html = self.openPage("index.html")
-        temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
-        self.do_HEAD()
-        status = ''
-        if self.path=='/':
+	### This runs when someone gets connected
+	def do_GET(self):
+		""" do_GET() can be tested using curl command
+			'curl http://server-ip-address:port'
+		"""
+		html = self.openPage("index.html")
+		temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
+		self.do_HEAD()
+		status = ''
+		if self.path=='/':
 			mylcd.lcd_display_string("*", 1, 15)
 
-        elif self.path.startswith('/sub/'):
+		elif self.path.startswith('/sub/'):
 			#print(self.path)
 			msg = self.path[5:].replace("_", " ")
 			print("'" + msg + "'")
 			mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			mylcd.lcd_display_string(msg, 2, 0)
-			
+
 		else :
 			mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
 
 
 
-        self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
+		self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
 
 if __name__ == '__main__':
@@ -98,6 +98,6 @@ if __name__ == '__main__':
 
 
 	try:
-	    http_server.serve_forever()
+		http_server.serve_forever()
 	except KeyboardInterrupt:
-	    http_server.server_close()
+		http_server.server_close()
