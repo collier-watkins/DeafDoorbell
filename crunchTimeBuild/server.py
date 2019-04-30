@@ -23,6 +23,26 @@ lcdClearLine = "                "
 myIP = check_output(['hostname', '--all-ip-addresses']).decode("utf-8").strip()
 
 
+############ Socket to client setup ############
+try:
+	CONNECTION_LIST = []
+	RECV_BUFFER = 4096	#4 kb
+	PORT = 8888
+
+	server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+	server_socket.bind(("", PORT))
+	server_socket.listen(10)	#up to 10 connections
+
+	CONNECTION_LIST.append(server_socket)	#Not sure if neccessary
+except:
+	print("Client socket connection failed")
+####################################################################
+
+
+
+
+
 class MyServer(BaseHTTPRequestHandler):
 	""" A special implementation of BaseHTTPRequestHander for reading data from
 		and control GPIO of a Raspberry Pi
@@ -76,6 +96,32 @@ class MyServer(BaseHTTPRequestHandler):
 			#mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			#mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
 
+
+		read_sockets,write_sockets,error_sockets = select.select(CONNECTION_LIST, [], [])
+
+		for sock in read_sockets :
+			if sock == server_socket :	#If the connection is from ourselves
+				sockfd, addr = server_socket.accept()
+				CONNECTION_LIST.append(sockfd)
+				print("Client (%s, %s) connected" % addr)
+				mylcd.lcd_display_string("%", 1, 15)
+
+
+			else :
+				try:
+					data = sock.recv(RECV_BUFFER)
+					if data :
+						#Save data.deac
+						sock.send(("Server got: " + data.decode() ).encode())
+						print("Client says:" + data.decode())
+						mylcd.lcd_display_string("reply sent", 1, 1)
+				except:
+					broadcast_data(sock, "Client is offline")
+					print("Client is offline (printstatement)")
+					sock.close()
+					CONNECTION_LIST.remove(sock)
+					continue
+
 		self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
 
@@ -83,21 +129,6 @@ if __name__ == '__main__':
 	http_server = HTTPServer((host_name, host_port), MyServer)
 	print("Server Starts - %s:%s" % (host_name, host_port))
 
-	############ Socket to client setup ############
-	try:
-		CONNECTION_LIST = []
-		RECV_BUFFER = 4096	#4 kb
-		PORT = 8888
-
-		server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-		server_socket.bind(("", PORT))
-		server_socket.listen(10)	#up to 10 connections
-
-		CONNECTION_LIST.append(server_socket)	#Not sure if neccessary
-	except:
-		print("Client socket connection failed")
-	####################################################################
 
 	mylcd = I2C_LCD_driver.lcd()
 	mylcd.lcd_clear()
@@ -109,9 +140,9 @@ if __name__ == '__main__':
 	mylcd.lcd_display_string(myIP, 2, 0)
 
 
-	
-	print("Chat server has started on port " + str(PORT))
 
+	print("Chat server has started on port " + str(PORT))
+'''
 	while True :
 		#poll here
 		read_sockets,write_sockets,error_sockets = select.select(CONNECTION_LIST, [], [])
@@ -138,11 +169,12 @@ if __name__ == '__main__':
 					sock.close()
 					CONNECTION_LIST.remove(sock)
 					continue
-
-	server_socket.close()
+'''
+	
 
 
 	try:
 		http_server.serve_forever()
 	except KeyboardInterrupt:
 		http_server.server_close()
+		server_socket.close()
