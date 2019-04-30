@@ -61,6 +61,10 @@ class MyServer(BaseHTTPRequestHandler):
           mylcd.lcd_display_string(lcdClearLine, 2, 0)
           mylcd.lcd_display_string(msg, 2, 0)
 
+        else :
+        	mylcd.lcd_display_string(lcdClearLine, 2, 0)
+          	mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
+
 
 
         self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
