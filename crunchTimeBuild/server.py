@@ -170,9 +170,6 @@ if __name__ == '__main__':
 					CONNECTION_LIST.remove(sock)
 					continue
 '''
-	
-
-
 	try:
 		http_server.serve_forever()
 	except KeyboardInterrupt:
