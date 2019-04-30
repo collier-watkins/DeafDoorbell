@@ -3,6 +3,8 @@ import os
 from time import sleep
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
+import select
+
 import socket
 import fcntl
 import struct
@@ -17,6 +19,8 @@ host_port = 80
 #mylcd = I2C_LCD_driver.lcd()
 
 lcdClearLine = "                "
+
+myIP = check_output(['hostname', '--all-ip-addresses']).decode("utf-8").strip()
 
 
 class MyServer(BaseHTTPRequestHandler):
@@ -36,6 +40,8 @@ class MyServer(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/html')
         self.end_headers()
 
+
+    ### This runs when someone gets connected
     def do_GET(self):
         """ do_GET() can be tested using curl command
             'curl http://server-ip-address:port'
@@ -77,15 +83,27 @@ if __name__ == '__main__':
     http_server = HTTPServer((host_name, host_port), MyServer)
     print("Server Starts - %s:%s" % (host_name, host_port))
 
-    
+    ############ Socket to client setup ############
+	CONNECTION_LIST = []
+	RECV_BUFFER = 4096	#4 kb
+	PORT = 8888
+
+	server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+	server_socket.bind(("", PORT))
+	server_socket.listen(10)	#up to 10 connections
+
+	CONNECTION_LIST.append(server_socket)	#Not sure if neccessary
+
+    ####################################################################
 
     mylcd.lcd_clear()
 
-    ip = check_output(['hostname', '--all-ip-addresses']).decode("utf-8").strip()
+    
     mylcd.lcd_display_string("Server", 1, 0)
 
-    print("'" + ip + "'")
-    mylcd.lcd_display_string(ip, 2, 0)
+    print("'" + myIP + "'")
+    mylcd.lcd_display_string(myIP, 2, 0)
     
 
     try:
