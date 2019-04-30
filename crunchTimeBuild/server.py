@@ -60,6 +60,20 @@ class MyServer(BaseHTTPRequestHandler):
 			mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			mylcd.lcd_display_string(msg, 2, 0)
 
+		elif '/msg/' in self.path :
+			arr = self.path.split("/")
+			msg = arr[-1].replace("_", " ")
+			joyChecked = '/joyCheck/' in self.path
+			upstairsChecked = '/upstairsCheck/' in self.path
+			mylcd.lcd_display_string(lcdClearLine, 1, 0)
+			mylcd.lcd_display_string(lcdClearLine, 2, 0)
+			if joyChecked :
+				mylcd.lcd_display_string("joy", 1, 0)
+			if upstairsChecked :
+				mylcd.lcd_display_string("up", 1, 4)
+			mylcd.lcd_display_string(msg, 2, 0)
+
+
 		elif self.path=='/flavicon.ico':
 			print("flavicon.ico")
 
