@@ -18,8 +18,6 @@ from subprocess import check_output
 host_name = ''  # Change this to your Raspberry Pi IP address
 host_port = 80
 
-#mylcd = I2C_LCD_driver.lcd()
-
 lcdClearLine = "                "
 
 myIP = check_output(['hostname', '--all-ip-addresses']).decode("utf-8").strip()
@@ -140,4 +138,7 @@ if __name__ == '__main__':
 	try:
 		http_server.serve_forever()
 	except KeyboardInterrupt:
+		#Actions for keyboard interrupt
 		http_server.server_close()
+		for s in socks :
+			s.close()
