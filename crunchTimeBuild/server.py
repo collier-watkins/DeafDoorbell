@@ -29,8 +29,8 @@ class MyServer(BaseHTTPRequestHandler):
 	"""
 
 	def openPage(self, filename):
-	  with open(filename) as f:
-		return f.read()
+		with open(filename) as f:
+			return f.read()
 
 	def do_HEAD(self):
 		""" do_HEAD() can be tested use curl command
@@ -63,8 +63,6 @@ class MyServer(BaseHTTPRequestHandler):
 		else :
 			mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
-
-
 
 		self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
