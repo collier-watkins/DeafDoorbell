@@ -39,7 +39,27 @@
 		+ '/msg/' + document.getElementById('msg').value.replace(/ /g,'_')
 		" >Submit</a>
 		-->
+		<!--
 		<a href="" onclick="this.href='/sub/' + document.getElementById('msg').value.replace(/ /g,'_')" > Submit </a>
+		-->
+		<button id="subButton" > Submit </button>
+
+		<script type="text/javascript">
+			document.getElementById("subButton").onclick = function () {
+				var URL = ""
+				if(document.getElementById("joyCheck").checked == true){
+					URL += "/joyCheck";
+				}
+				if(document.getElementById("upstairsCheck").checked == true){
+					URL += "/upstairsCheck";
+				}
+
+				URL += "/msg/" + document.getElementById('msg').value.replace(/ /g,'_');
+
+				location.href = URL;	
+			};
+		</script>
 		
+
 	</body>
 </html>
