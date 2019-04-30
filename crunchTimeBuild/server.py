@@ -24,19 +24,21 @@ myIP = check_output(['hostname', '--all-ip-addresses']).decode("utf-8").strip()
 
 
 ############ Socket to client setup ############
-try:
-	CONNECTION_LIST = []
-	RECV_BUFFER = 4096	#4 kb
-	PORT = 8888
 
-	server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-	server_socket.bind(("", PORT))
-	server_socket.listen(10)	#up to 10 connections
+def setupServer():
+	try: 
+		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM);
+		print("Socket s created.")
+	except socket.error as msg :
+		print(msg)
+		sys.exit()
+	return s
 
-	CONNECTION_LIST.append(server_socket)	#Not sure if neccessary
-except:
-	print("Client socket connection failed")
+
+socketJoy = setupServer()
+socketUpstairs = setupServer()
+
+
 ####################################################################
 
 
@@ -87,33 +89,6 @@ class MyServer(BaseHTTPRequestHandler):
 				mylcd.lcd_display_string("up", 1, 4)
 			mylcd.lcd_display_string(msg, 2, 0)
 
-				
-			print("socket step: 1")
-			read_sockets,write_sockets,error_sockets = select.select(CONNECTION_LIST, [], [])
-			print("socket step: 2")
-			for sock in read_sockets :
-				if sock == server_socket :	#If the connection is from ourselves
-					sockfd, addr = server_socket.accept()
-					CONNECTION_LIST.append(sockfd)
-					print("Client (%s, %s) connected" % addr)
-					#mylcd.lcd_display_string("%", 1, 15)
-
-
-				else :
-					try:
-						data = sock.recv(RECV_BUFFER)
-						if data :
-							#Save data.deac
-							sock.send(("Server got: " + data.decode() ).encode())
-							print("Client says:" + data.decode())
-							#mylcd.lcd_display_string("reply sent", 1, 1)
-					except:
-						broadcast_data(sock, "Client is offline")
-						print("Client is offline (printstatement)")
-						sock.close()
-						CONNECTION_LIST.remove(sock)
-						continue
-
 
 		elif self.path=='/flavicon.ico':
 			print("flavicon.ico")
@@ -143,10 +118,7 @@ if __name__ == '__main__':
 
 
 
-	print("Chat server has started on port " + str(PORT))
-
 	try:
 		http_server.serve_forever()
 	except KeyboardInterrupt:
 		http_server.server_close()
-		server_socket.close()
