@@ -61,6 +61,7 @@ class MyServer(BaseHTTPRequestHandler):
 			mylcd.lcd_display_string(msg, 2, 0)
 
 		else :
+			print("Exeption: Bad URL")
 			mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
 

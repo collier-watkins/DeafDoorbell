@@ -47,12 +47,8 @@
 		<script type="text/javascript">
 			document.getElementById("subButton").onclick = function () {{
 				var URL = ""
-				if(document.getElementById("joyCheck").checked == true){
-					URL += "/joyCheck";
-				}
-				if(document.getElementById("upstairsCheck").checked == true){
-					URL += "/upstairsCheck";
-				}
+				if(document.getElementById("joyCheck").checked == true) URL += "/joyCheck";
+				if(document.getElementById("upstairsCheck").checked == true) URL += "/upstairsCheck";
 
 				URL += "/msg/" + document.getElementById('msg').value.replace(/ /g,'_');
 
