@@ -5,6 +5,8 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 import select
 
+import sys
+
 import socket
 import fcntl
 import struct
@@ -25,19 +27,16 @@ myIP = check_output(['hostname', '--all-ip-addresses']).decode("utf-8").strip()
 
 ############ Socket to client setup ############
 
-def setupServer():
+def setupSocket():
 	try: 
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM);
-		print("Socket s created.")
+		print("Socket created.")
 	except socket.error as msg :
 		print(msg)
 		sys.exit()
 	return s
 
-
-socketJoy = setupServer()
-socketUpstairs = setupServer()
-
+socks = []
 
 ####################################################################
 
@@ -85,8 +84,20 @@ class MyServer(BaseHTTPRequestHandler):
 			mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			if joyChecked :
 				mylcd.lcd_display_string("joy", 1, 0)
+				try:
+					socks[0].sendall(msg.encode())
+					reply = socks[0].recv(4096)
+					print("socks[0] reply: " + reply)
+				except:
+					print("msg to socks[0] failed")
 			if upstairsChecked :
 				mylcd.lcd_display_string("up", 1, 4)
+				try:
+					socks[1].sendall(msg.encode())
+					reply = socks[1].recv(4096)
+					print("socks[1] reply: " + reply)
+				except:
+					print("msg to socks[1] failed")
 			mylcd.lcd_display_string(msg, 2, 0)
 
 
@@ -103,13 +114,13 @@ class MyServer(BaseHTTPRequestHandler):
 
 
 if __name__ == '__main__':
+	## HTTP Setup
 	http_server = HTTPServer((host_name, host_port), MyServer)
 	print("Server Starts - %s:%s" % (host_name, host_port))
 
-
+	### LCD Setup
 	mylcd = I2C_LCD_driver.lcd()
 	mylcd.lcd_clear()
-
 
 	mylcd.lcd_display_string("Server", 1, 0)
 
@@ -118,6 +129,14 @@ if __name__ == '__main__':
 
 
 
+	##Socket Setup
+	for arg in sys.argv[1:] :
+		socks.append(setupSocket())
+
+
+
+
+	## Run HTTP Server
 	try:
 		http_server.serve_forever()
 	except KeyboardInterrupt:
