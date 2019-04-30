@@ -87,6 +87,33 @@ class MyServer(BaseHTTPRequestHandler):
 				mylcd.lcd_display_string("up", 1, 4)
 			mylcd.lcd_display_string(msg, 2, 0)
 
+				
+			print("socket step: 1")
+			read_sockets,write_sockets,error_sockets = select.select(CONNECTION_LIST, [], [])
+			print("socket step: 2")
+			for sock in read_sockets :
+				if sock == server_socket :	#If the connection is from ourselves
+					sockfd, addr = server_socket.accept()
+					CONNECTION_LIST.append(sockfd)
+					print("Client (%s, %s) connected" % addr)
+					#mylcd.lcd_display_string("%", 1, 15)
+
+
+				else :
+					try:
+						data = sock.recv(RECV_BUFFER)
+						if data :
+							#Save data.deac
+							sock.send(("Server got: " + data.decode() ).encode())
+							print("Client says:" + data.decode())
+							#mylcd.lcd_display_string("reply sent", 1, 1)
+					except:
+						broadcast_data(sock, "Client is offline")
+						print("Client is offline (printstatement)")
+						sock.close()
+						CONNECTION_LIST.remove(sock)
+						continue
+
 
 		elif self.path=='/flavicon.ico':
 			print("flavicon.ico")
@@ -96,31 +123,6 @@ class MyServer(BaseHTTPRequestHandler):
 			#mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			#mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
 
-
-		read_sockets,write_sockets,error_sockets = select.select(CONNECTION_LIST, [], [])
-
-		for sock in read_sockets :
-			if sock == server_socket :	#If the connection is from ourselves
-				sockfd, addr = server_socket.accept()
-				CONNECTION_LIST.append(sockfd)
-				print("Client (%s, %s) connected" % addr)
-				mylcd.lcd_display_string("%", 1, 15)
-
-
-			else :
-				try:
-					data = sock.recv(RECV_BUFFER)
-					if data :
-						#Save data.deac
-						sock.send(("Server got: " + data.decode() ).encode())
-						print("Client says:" + data.decode())
-						mylcd.lcd_display_string("reply sent", 1, 1)
-				except:
-					broadcast_data(sock, "Client is offline")
-					print("Client is offline (printstatement)")
-					sock.close()
-					CONNECTION_LIST.remove(sock)
-					continue
 
 		self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
@@ -142,7 +144,7 @@ if __name__ == '__main__':
 
 
 	print("Chat server has started on port " + str(PORT))
-	
+
 	try:
 		http_server.serve_forever()
 	except KeyboardInterrupt:
