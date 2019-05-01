@@ -65,7 +65,7 @@ class MyServer(BaseHTTPRequestHandler):
 		""" do_GET() can be tested using curl command
 			'curl http://server-ip-address:port'
 		"""
-		html = self.openPage("indexTEST.html")
+		html = self.openPage("index.html")
 		temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
 		self.do_HEAD()
 		status = ''
@@ -103,8 +103,9 @@ class MyServer(BaseHTTPRequestHandler):
 			#mylcd.lcd_display_string(msg, 2, 0)
 			print(msg)
 
-		elif '/occCheck/' in self.path :
-			print("occCheck")
+		elif 'magic' in self.path :
+			html = self.openPage("indexTEST.html")
+			temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
 
 		elif self.path=='/flavicon.ico':
 			print("flavicon.ico")

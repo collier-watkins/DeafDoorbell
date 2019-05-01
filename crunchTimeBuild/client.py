@@ -70,7 +70,7 @@ if __name__ == "__main__":
 				CONNECTION_LIST.append(sockfd)
 				print("Server (%s, %s) connected" % addr)
 				mylcd.lcd_clear()
-				mylcd.lcd_display_string("Server conn.", 1, 15)
+				mylcd.lcd_display_string("Server conn.", 1, 0)
 
 
 			else :
