@@ -51,7 +51,7 @@ if __name__ == "__main__":
 
 	print("Chat server has started on port " + str(PORT))
 
-	mylcd.lcd_display_string("Ready for server", 1, 0)
+	mylcd.lcd_display_string("Client#1 Ready", 1, 0)
 	mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
 
 	while True :
