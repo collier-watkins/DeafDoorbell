@@ -150,7 +150,7 @@ class MyServer(BaseHTTPRequestHandler):
 			print("Exeption: Bad URL")
 			#mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			#mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
-
+		print("REACHED")
 		if joyOcc and upstairsOcc :
 			html = self.openPage("indexBoth.html")
 			temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
