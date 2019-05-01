@@ -1,4 +1,4 @@
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 import os
 from time import sleep
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -11,11 +11,11 @@ import socket
 import fcntl
 import struct
 
-import I2C_LCD_driver
+#import I2C_LCD_driver
 
 from subprocess import check_output
 
-host_name = ''  # Change this to your Raspberry Pi IP address
+host_name = ''
 host_port = 80
 
 lcdClearLine = "                "
@@ -70,18 +70,19 @@ class MyServer(BaseHTTPRequestHandler):
 		self.do_HEAD()
 		status = ''
 		if self.path=='/':
-			mylcd.lcd_display_string("*", 1, 15)
-
+			#mylcd.lcd_display_string("*", 1, 15)
+			print("root hit")
 
 		elif '/msg/' in self.path :
 			arr = self.path.split("/")
 			msg = arr[-1].replace("_", " ")
 			joyChecked = '/joyCheck/' in self.path
 			upstairsChecked = '/upstairsCheck/' in self.path
-			mylcd.lcd_display_string(lcdClearLine, 1, 0)
-			mylcd.lcd_display_string(lcdClearLine, 2, 0)
+			#mylcd.lcd_display_string(lcdClearLine, 1, 0)
+			#mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			if joyChecked :
-				mylcd.lcd_display_string("joy", 1, 0)
+				#mylcd.lcd_display_string("joy", 1, 0)
+				print("joyChecked")
 				try:
 					socks[0].sendall(msg.encode())
 					reply = socks[0].recv(4096)
@@ -89,14 +90,16 @@ class MyServer(BaseHTTPRequestHandler):
 				except:
 					print("msg to socks[0] failed")
 			if upstairsChecked :
-				mylcd.lcd_display_string("up", 1, 4)
+				#mylcd.lcd_display_string("up", 1, 4)
+				print("upstairsChecked")
 				try:
 					socks[1].sendall(msg.encode())
 					reply = socks[1].recv(4096)
 					print("socks[1] reply: " + reply)
 				except:
 					print("msg to socks[1] failed")
-			mylcd.lcd_display_string(msg, 2, 0)
+			#mylcd.lcd_display_string(msg, 2, 0)
+			print(msg)
 
 
 		elif self.path=='/flavicon.ico':
@@ -104,8 +107,8 @@ class MyServer(BaseHTTPRequestHandler):
 
 		else :
 			print("Exeption: Bad URL")
-			#mylcd.lcd_display_string(lcdClearLine, 2, 0)
-			#mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
+			##mylcd.lcd_display_string(lcdClearLine, 2, 0)
+			##mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
 
 
 		self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
@@ -117,13 +120,13 @@ if __name__ == '__main__':
 	print("Server Starts - %s:%s" % (host_name, host_port))
 
 	### LCD Setup
-	mylcd = I2C_LCD_driver.lcd()
-	mylcd.lcd_clear()
+	#mylcd = I2C_LCD_driver.lcd()
+	#mylcd.lcd_clear()
 
-	mylcd.lcd_display_string("Server", 1, 0)
+	#mylcd.lcd_display_string("Server", 1, 0)
 
 	print("'" + myIP + "'")
-	mylcd.lcd_display_string(myIP, 2, 0)
+	#mylcd.lcd_display_string(myIP, 2, 0)
 
 
 
