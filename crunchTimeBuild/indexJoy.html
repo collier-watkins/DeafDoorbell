@@ -1,0 +1,54 @@
+<html>
+	<head>
+
+	 	<!-- Required meta tags -->
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+		<title>Doorbell Messenger</title>
+
+	   
+	    
+	</head>
+	<body style="width:960px; margin: 20px auto;">
+		<h1>Doorbell</h1>
+		<!--	
+		<p>Turn LED: <a href="/on">On</a> <a href="/off">Off</a></p>
+
+		<br>
+		
+		<div id="led-status"></div>
+		-->
+
+		Message: <input type="text" id="msg"><br>
+
+		<input type="checkbox" id="joyCheck" value="Joy's Room">
+		<label for="joyCheck">Joy's Room</label>
+		<label for="joyCheck">   <b>Occupied</b></label>
+
+		<br>
+
+		<input type="checkbox" id="upstairsCheck" value="Upstairs Bathroom">
+		<label for="upstairsCheck">Upstairs Bathroom</label>
+
+		<br>
+
+
+		<button id="subButton" > Submit </button>
+
+		<script type="text/javascript">
+			document.getElementById("subButton").onclick = function () {{
+				var URL = ""
+				if(document.getElementById("joyCheck").checked) URL += "/joyCheck";
+				if(document.getElementById("upstairsCheck").checked) URL += "/upstairsCheck";
+
+				URL += "/msg/" + document.getElementById('msg').value.replace(/ /g,'_');
+
+				location.href = URL;	
+			}};
+		</script>
+		
+
+	</body>
+</html>

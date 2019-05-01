@@ -65,7 +65,7 @@ class MyServer(BaseHTTPRequestHandler):
 		""" do_GET() can be tested using curl command
 			'curl http://server-ip-address:port'
 		"""
-		html = self.openPage("index.html")
+		html = self.openPage("indexJoy.html")
 		temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
 		self.do_HEAD()
 		status = ''
