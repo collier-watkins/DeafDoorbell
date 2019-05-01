@@ -70,7 +70,7 @@ class MyServer(BaseHTTPRequestHandler):
 		self.do_HEAD()
 		status = ''
 		if self.path=='/':
-			#mylcd.lcd_display_string("*", 1, 15)
+			mylcd.lcd_display_string("*", 1, 15)
 			print("root hit")
 
 		elif '/msg/' in self.path :
@@ -78,10 +78,10 @@ class MyServer(BaseHTTPRequestHandler):
 			msg = arr[-1].replace("_", " ")
 			joyChecked = '/joyCheck/' in self.path
 			upstairsChecked = '/upstairsCheck/' in self.path
-			#mylcd.lcd_display_string(lcdClearLine, 1, 0)
-			#mylcd.lcd_display_string(lcdClearLine, 2, 0)
+			mylcd.lcd_display_string(lcdClearLine, 1, 0)
+			mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			if joyChecked :
-				#mylcd.lcd_display_string("joy", 1, 0)
+				mylcd.lcd_display_string("joy", 1, 0)
 				print("joyChecked")
 				try:
 					socks[0].sendall(msg.encode())
@@ -90,7 +90,7 @@ class MyServer(BaseHTTPRequestHandler):
 				except:
 					print("msg to socks[0] failed")
 			if upstairsChecked :
-				#mylcd.lcd_display_string("up", 1, 4)
+				mylcd.lcd_display_string("up", 1, 4)
 				print("upstairsChecked")
 				try:
 					socks[1].sendall(msg.encode())
@@ -98,7 +98,7 @@ class MyServer(BaseHTTPRequestHandler):
 					print("socks[1] reply: " + reply)
 				except:
 					print("msg to socks[1] failed")
-			#mylcd.lcd_display_string(msg, 2, 0)
+			mylcd.lcd_display_string(msg, 2, 0)
 			print(msg)
 
 
@@ -107,8 +107,8 @@ class MyServer(BaseHTTPRequestHandler):
 
 		else :
 			print("Exeption: Bad URL")
-			##mylcd.lcd_display_string(lcdClearLine, 2, 0)
-			##mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
+			#mylcd.lcd_display_string(lcdClearLine, 2, 0)
+			#mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
 
 
 		self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
@@ -120,13 +120,13 @@ if __name__ == '__main__':
 	print("Server Starts - %s:%s" % (host_name, host_port))
 
 	### LCD Setup
-	#mylcd = I2C_LCD_driver.lcd()
-	#mylcd.lcd_clear()
+	mylcd = I2C_LCD_driver.lcd()
+	mylcd.lcd_clear()
 
-	#mylcd.lcd_display_string("Server", 1, 0)
+	mylcd.lcd_display_string("Server", 1, 0)
 
 	print("'" + myIP + "'")
-	#mylcd.lcd_display_string(myIP, 2, 0)
+	mylcd.lcd_display_string(myIP, 2, 0)
 
 
 
