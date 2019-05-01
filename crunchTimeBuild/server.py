@@ -136,14 +136,22 @@ class MyServer(BaseHTTPRequestHandler):
 
 		elif '/IP' in self.path :
 			arr = self.path.split("/")
-			for s in arr :
-				try:
-					int(s[0])
-					socks.append(setupSocket())
-					socks[-1].connect((s, 8888))
-					print("Client found:", s)
-				except:
-					doNothing = True
+			for i in range(0,len(arr)) :
+				if arr[i] == "IP1" :
+					try:
+						socks.append(setupSocket())
+						socks[-1].connect((arr[i+1], 8888))
+						print("Client found:", arr[i+1])
+					except:
+						print("failed to connect to ", arr[i+1])
+				if arr[i] == "IP2" :
+					try:
+						socks.append(setupSocket())
+						socks[-1].connect((arr[i+1], 8889))
+						print("Client found:", arr[i+1])
+					except:
+						print("failed to connect to ", arr[i+1])
+		
 		elif self.path=='/favicon.ico':
 			print("favicon.ico")
 
@@ -196,8 +204,10 @@ if __name__ == '__main__':
 		except:
 			print("Client at that IP not ready")
 	i = 1
+	portNum = 8888
 	for s in socks :
-		s.connect((sys.argv[i], 8888))
+		s.connect((sys.argv[i], portNum))
+		portNum += 1
 		i += 1
 
 
