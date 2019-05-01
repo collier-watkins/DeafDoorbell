@@ -81,6 +81,20 @@ if __name__ == "__main__":
 						sock.send(response.encode())
 						print("Server Pi says:" + data.decode())
 						mylcd.lcd_display_string(data.decode(), 1, 0)
+
+						#Do stuff here
+							lightOn = True
+							while True :
+								if lightOn :
+									GPIO.output(18,1)
+								else :
+									GPIO.output(18,0)
+								if GPIO.input(4) == False :
+									mylcd.lcd_clear()
+									GPIO.output(18,0)
+									break
+
+
 				except:
 					broadcast_data(sock, "Client is offline")
 					print("Client is offline (printstatement)")
