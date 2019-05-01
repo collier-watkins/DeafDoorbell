@@ -108,12 +108,25 @@ class MyServer(BaseHTTPRequestHandler):
 			#mylcd.lcd_display_string(msg, 2, 0)
 			print(msg)
 
+		elif '/IP' in self.path :
+			arr = self.path.split("/")
+			for s in arr :
+				try:
+					int(s[0])
+					socks.append(setupSocket())
+					socks[-1].connect((s, 8888))
+				except:
+					doNothing = True
+			html = self.openPage("index.html")
+			temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
+
 		elif 'magic' in self.path :
 			html = self.openPage("indexTEST.html")
 			temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
 
 		elif self.path=='/flavicon.ico':
 			print("flavicon.ico")
+
 
 		else :
 			print("Exeption: Bad URL")

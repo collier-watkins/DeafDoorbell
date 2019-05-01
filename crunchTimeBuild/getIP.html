@@ -13,25 +13,14 @@
 	</head>
 	<body style="width:960px; margin: 20px auto;">
 		<h1>Doorbell</h1>
-		<!--	
-		<p>Turn LED: <a href="/on">On</a> <a href="/off">Off</a></p>
-
-		<br>
-		
-		<div id="led-status"></div>
-		-->
-
-		Enter IP: <input type="text" id="msg"><br>
-
-		<input type="checkbox" id="joyCheck" value="Joy's Room">
-		<label for="joyCheck">Joy's Room</label>
-
 		<br>
 
-		<input type="checkbox" id="upstairsCheck" value="Upstairs Bathroom">
-		<label for="upstairsCheck">Upstairs Bathroom</label>
+		<h2> Please enter the local IP addresses of up to 2 client devices </h2>
 
-		<br>
+		Client 1: <input type="text" id="IP1" value=""><br>
+		Client 2: <input type="text" id="IP2" value=""><br>
+
+		<p> Please ensure that the client displays "Ready for server" on the LCD before continuing </p>
 
 
 		<button id="subButton" > Submit </button>
@@ -39,10 +28,10 @@
 		<script type="text/javascript">
 			document.getElementById("subButton").onclick = function () {{
 				var URL = ""
-				if(document.getElementById("joyCheck").checked) URL += "/joyCheck";
-				if(document.getElementById("upstairsCheck").checked) URL += "/upstairsCheck";
-
-				URL += "/msg/" + document.getElementById('msg').value.replace(/ /g,'_');
+				if(document.getElementById("IP1").value != "")
+					URL += "/IP1/" + document.getElementById("IP1").value;
+				if(document.getElementById("IP2").value != "")
+					URL += "/IP2/" + document.getElementById("IP2").value;
 
 				location.href = URL;	
 			}};
