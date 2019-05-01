@@ -63,7 +63,7 @@ if __name__ == "__main__":
 	while True :
 		#poll here
 		read_sockets,write_sockets,error_sockets = select.select(CONNECTION_LIST, [], [])
-		if not sock in read_sockets :
+		if read_sockets :
 			mylcd.lcd_clear()
 			mylcd.lcd_display_string("Ready for server", 1, 0)
 		for sock in read_sockets :
