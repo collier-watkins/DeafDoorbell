@@ -141,6 +141,7 @@ class MyServer(BaseHTTPRequestHandler):
 					int(s[0])
 					socks.append(setupSocket())
 					socks[-1].connect((s, 8888))
+					print("Client found:", s)
 				except:
 					doNothing = True
 		elif self.path=='/favicon.ico':
