@@ -63,7 +63,9 @@ if __name__ == "__main__":
 	while True :
 		#poll here
 		read_sockets,write_sockets,error_sockets = select.select(CONNECTION_LIST, [], [])
-
+		if not sock in read_sockets :
+			mylcd.lcd_clear()
+			mylcd.lcd_display_string("Ready for server", 1, 0)
 		for sock in read_sockets :
 			if sock == server_socket :	#If the connection is from ourselves
 				sockfd, addr = server_socket.accept()
@@ -99,7 +101,6 @@ if __name__ == "__main__":
 								mylcd.lcd_clear()
 								mylcd.backlight(0)
 								GPIO.output(18,0)
-								sock.send("clicked".encode())
 								break
 
 
