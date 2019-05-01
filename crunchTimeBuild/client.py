@@ -73,35 +73,42 @@ if __name__ == "__main__":
 					data = sock.recv(RECV_BUFFER)
 					if data :
 						#Save data.deac
-						mylcd.lcd_clear()
-						if GPIO.input(17) == True :
-							response = "/occ/"
-						else :
-							response = "/notocc/"
-						sock.send(response.encode())
-						print("Server Pi says:" + data.decode())
-						if(len(data.decode()) > 16) :
-							mylcd.lcd_display_string(data.decode()[:16], 1, 0)
-							mylcd.lcd_display_string(data.decode()[16:], 2, 0)
-						else: 
-							mylcd.lcd_display_string(data.decode(), 1, 0)
-
-						#Message Handling Sequence
-						mylcd.backlight(1)
-						lightOn = True
-						while True :
-							sleep(0.2)
-							if lightOn :
-								GPIO.output(18,1)
-								lightOn = not lightOn
+						if data.decode() == "occCheck":
+							if GPIO.input(17) == True :
+								response = "/occ/"
 							else :
-								GPIO.output(18,0)
-								lightOn = not lightOn
-							if GPIO.input(4) == False :
-								mylcd.lcd_clear()
-								mylcd.backlight(0)
-								GPIO.output(18,0)
-								break
+								response = "/notocc/"
+							sock.send(response.encode())
+						else :
+							mylcd.lcd_clear()
+							if GPIO.input(17) == True :
+								response = "/occ/"
+							else :
+								response = "/notocc/"
+							sock.send(response.encode())
+							print("Server Pi says:" + data.decode())
+							if(len(data.decode()) > 16) :
+								mylcd.lcd_display_string(data.decode()[:16], 1, 0)
+								mylcd.lcd_display_string(data.decode()[16:], 2, 0)
+							else: 
+								mylcd.lcd_display_string(data.decode(), 1, 0)
+
+							#Message Handling Sequence
+							mylcd.backlight(1)
+							lightOn = True
+							while True :
+								sleep(0.2)
+								if lightOn :
+									GPIO.output(18,1)
+									lightOn = not lightOn
+								else :
+									GPIO.output(18,0)
+									lightOn = not lightOn
+								if GPIO.input(4) == False :
+									mylcd.lcd_clear()
+									mylcd.backlight(0)
+									GPIO.output(18,0)
+									break
 
 
 				except:
