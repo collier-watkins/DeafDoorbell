@@ -83,16 +83,19 @@ if __name__ == "__main__":
 						mylcd.lcd_display_string(data.decode(), 1, 0)
 
 						#Do stuff here
-							lightOn = True
-							while True :
-								if lightOn :
-									GPIO.output(18,1)
-								else :
-									GPIO.output(18,0)
-								if GPIO.input(4) == False :
-									mylcd.lcd_clear()
-									GPIO.output(18,0)
-									break
+						lightOn = True
+						while True :
+							sleep(0.2)
+							if lightOn :
+								GPIO.output(18,1)
+								lightOn = not lightOn
+							else :
+								GPIO.output(18,0)
+								lightOn = not lightOn
+							if GPIO.input(4) == False :
+								mylcd.lcd_clear()
+								GPIO.output(18,0)
+								break
 
 
 				except:
