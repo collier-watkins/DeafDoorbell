@@ -1,4 +1,4 @@
-import I2C_LCD_driver
+#import I2C_LCD_driver
 import socket
 import fcntl
 import struct
@@ -8,19 +8,19 @@ from thread import *
 
 from time import *
 
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 
 
 #autorunning this script using the file /home/pi/.bashrc
 
 
-host = "10.230.142.162"
+host = "192.168.0.16"
 port = 8888
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_UP)	#Button
-GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)	#Occupancy Signal
-GPIO.setup(18, GPIO.OUT)	#Attention LED
+#GPIO.setmode(GPIO.BCM)
+#GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_UP)	#Button
+#GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)	#Occupancy Signal
+#GPIO.setup(18, GPIO.OUT)	#Attention LED
 
 
 
@@ -46,9 +46,9 @@ def get_pi_ip_address(ifname):
         struct.pack('256s', ifname[:15])
     )[20:24])
 
-mylcd = I2C_LCD_driver.lcd()
+#mylcd = I2C_LCD_driver.lcd()
 
-mylcd.lcd_clear()
+#mylcd.lcd_clear()
 
 def setupServer():
 	try: 
@@ -63,7 +63,7 @@ def setupServer():
 
 ###### LCD Setup #############
 print("Starting...")
-print("Current Local IP: " + get_pi_ip_address('wlan0'))
+#print("Current Local IP: " + get_pi_ip_address('wlan0'))
 
 
 
@@ -77,18 +77,18 @@ s.connect((host, port))
 
 print("Socket connected")
 
-mylcd.lcd_display_string("Tap btn to start", 1, 0)
-mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
+#mylcd.lcd_display_string("Tap btn to start", 1, 0)
+#mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
 
-while True :
-	if GPIO.input(4) == False :
-		mylcd.lcd_clear()
-		break
+#while True :
+#	if GPIO.input(4) == False :
+#		#mylcd.lcd_clear()
+#		break
 
 rep = 1
 while True: 
 
-	message = "message #" + str(rep)
+	message = raw_input()
 	rep = rep + 1
 
 	# GET MOTION SENSOR AND BUTTON STATUS INFO HERE
@@ -111,20 +111,20 @@ while True:
 	print(reply.decode())
 
 	#Button pressed
-	if GPIO.input(4) == False :
-		print("Button Pressed")
-		mylcd.lcd_display_string("Btn Pressed", 1, 1)
+#	if GPIO.input(4) == False :
+#		print("Button Pressed")
+		#mylcd.lcd_display_string("Btn Pressed", 1, 1)
 
 	#Room occupied
-	if GPIO.input(17) == True :
-		print("Occupied")
-		mylcd.lcd_display_string("*", 1, 15)
+#	if GPIO.input(17) == True :
+#		print("Occupied")
+		#mylcd.lcd_display_string("*", 1, 15)
 		#Attention LED testing
-		GPIO.output(18,1)
-	else :
-		mylcd.lcd_display_string(" ", 1, 15)
+#		GPIO.output(18,1)
+#	else :
+		#mylcd.lcd_display_string(" ", 1, 15)
 		#Attention LED testing
-		GPIO.output(18,0)
+#		GPIO.output(18,0)
 
 
 

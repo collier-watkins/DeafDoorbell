@@ -13,6 +13,14 @@ from time import *
 import RPi.GPIO as GPIO
 
 
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_UP)	#Button
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)	#Occupancy Signal
+GPIO.setup(18, GPIO.OUT)	#Attention LED
+
+
+
+
 def get_pi_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     return socket.inet_ntoa(fcntl.ioctl(
