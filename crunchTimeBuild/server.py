@@ -133,8 +133,10 @@ if __name__ == '__main__':
 	##Socket Setup
 	for arg in sys.argv[1:] :
 		socks.append(setupSocket())
-
-
+	i = 1
+	for s in socks :
+		s.connect((sys.argv[i], 8888))
+		i += 1
 
 
 	## Run HTTP Server
