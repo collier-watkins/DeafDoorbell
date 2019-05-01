@@ -114,7 +114,8 @@ class MyServer(BaseHTTPRequestHandler):
 					print("msg to socks[1] failed")
 			#mylcd.lcd_display_string(msg, 2, 0)
 			print(msg)
-			#if()
+			html = self.openPage("index.html")
+			temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
 
 		elif '/IP' in self.path :
 			arr = self.path.split("/")
