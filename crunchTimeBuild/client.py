@@ -44,6 +44,7 @@ if __name__ == "__main__":
 	while True :
 		if GPIO.input(4) == False :
 			mylcd.lcd_clear()
+			mylcd.backlight(0)
 			break
 
 	CONNECTION_LIST = []
@@ -82,7 +83,8 @@ if __name__ == "__main__":
 						print("Server Pi says:" + data.decode())
 						mylcd.lcd_display_string(data.decode(), 1, 0)
 
-						#Do stuff here
+						#Message Handling Sequence
+						mylcd.backlight(1)
 						lightOn = True
 						while True :
 							sleep(0.2)
@@ -94,6 +96,7 @@ if __name__ == "__main__":
 								lightOn = not lightOn
 							if GPIO.input(4) == False :
 								mylcd.lcd_clear()
+								mylcd.backlight(0)
 								GPIO.output(18,0)
 								break
 
