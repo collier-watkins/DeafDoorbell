@@ -142,8 +142,8 @@ class MyServer(BaseHTTPRequestHandler):
 					socks[-1].connect((s, 8888))
 				except:
 					doNothing = True
-		elif self.path=='/flavicon.ico':
-			print("flavicon.ico")
+		elif self.path=='/favicon.ico':
+			print("favicon.ico")
 
 
 		else :
