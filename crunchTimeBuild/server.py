@@ -65,15 +65,23 @@ class MyServer(BaseHTTPRequestHandler):
 		""" do_GET() can be tested using curl command
 			'curl http://server-ip-address:port'
 		"""
-		html = self.openPage("index.html")
-		temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
-		self.do_HEAD()
-		status = ''
+		
 		if self.path=='/':
+			html = self.openPage("getIP.html")
+			temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
+			self.do_HEAD()
+			status = ''
+
 			mylcd.lcd_display_string("*", 1, 15)
 			print("root hit")
 
 		elif '/msg/' in self.path :
+			html = self.openPage("getIP.html")
+			temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
+			self.do_HEAD()
+			status = ''
+
+			
 			arr = self.path.split("/")
 			msg = arr[-1].replace("_", " ")
 			joyChecked = '/joyCheck/' in self.path

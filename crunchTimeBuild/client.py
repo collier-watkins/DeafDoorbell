@@ -60,12 +60,12 @@ if __name__ == "__main__":
 
 	print("Chat server has started on port " + str(PORT))
 
+	mylcd.lcd_display_string("Ready for server", 1, 0)
+
 	while True :
 		#poll here
 		read_sockets,write_sockets,error_sockets = select.select(CONNECTION_LIST, [], [])
-		if read_sockets :
-			mylcd.lcd_clear()
-			mylcd.lcd_display_string("Ready for server", 1, 0)
+
 		for sock in read_sockets :
 			if sock == server_socket :	#If the connection is from ourselves
 				sockfd, addr = server_socket.accept()
@@ -73,7 +73,6 @@ if __name__ == "__main__":
 				print("Server (%s, %s) connected" % addr)
 				mylcd.lcd_clear()
 				mylcd.lcd_display_string("Server conn.", 1, 0)
-
 
 			else :
 				try:
