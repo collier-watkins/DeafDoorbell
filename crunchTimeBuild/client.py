@@ -80,11 +80,11 @@ if __name__ == "__main__":
 							response = "/notocc/"
 						sock.send(response.encode())
 						print("Server Pi says:" + data.decode())
-						if(len(data.decode()) > 16){
+						if(len(data.decode()) > 16) :
 							mylcd.lcd_display_string(data.decode()[:16], 1, 0)
 							mylcd.lcd_display_string(data.decode()[17:], 2, 0)
-						}
-						mylcd.lcd_display_string(data.decode(), 1, 0)
+						else: 
+							mylcd.lcd_display_string(data.decode(), 1, 0)
 
 						#Message Handling Sequence
 						mylcd.backlight(1)
