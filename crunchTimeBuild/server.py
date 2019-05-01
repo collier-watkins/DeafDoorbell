@@ -78,6 +78,7 @@ class MyServer(BaseHTTPRequestHandler):
 			mylcd.lcd_display_string("*", 1, 15)
 			print("root hit")
 			if len(socks) == 0 :
+				print("no socks")
 				html = self.openPage("getIP.html")
 				temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
 			else :
