@@ -11,7 +11,7 @@ import socket
 import fcntl
 import struct
 
-#import I2C_LCD_driver
+import I2C_LCD_driver
 
 from subprocess import check_output
 
