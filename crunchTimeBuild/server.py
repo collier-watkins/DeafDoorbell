@@ -75,7 +75,7 @@ class MyServer(BaseHTTPRequestHandler):
 
 
 		if self.path=='/':
-			#mylcd.lcd_display_string("*", 1, 15)
+			mylcd.lcd_display_string("*", 1, 15)
 			print("root hit")
 			if len(socks) == 0 :
 				print("no socks")
@@ -102,36 +102,36 @@ class MyServer(BaseHTTPRequestHandler):
 			msg = arr[-1].replace("_", " ")
 			joyChecked = '/joyCheck/' in self.path
 			upstairsChecked = '/upstairsCheck/' in self.path
-			#mylcd.lcd_display_string(lcdClearLine, 1, 0)
-			#mylcd.lcd_display_string(lcdClearLine, 2, 0)
+			mylcd.lcd_display_string(lcdClearLine, 1, 0)
+			mylcd.lcd_display_string(lcdClearLine, 2, 0)
 
 			#joyOcc = False
 			#upstairsOcc = False
 
 			if joyChecked :
-				##mylcd.lcd_display_string("joy", 1, 0)
+				#mylcd.lcd_display_string("joy", 1, 0)
 				print("joyChecked")
 				try:
 					socks[0].sendall(msg.encode())
 					reply = socks[0].recv(4096)
 					print("socks[0] reply: " + reply.decode())
-					#mylcd.lcd_display_string("0:" + reply.decode(), 1, 0)
+					mylcd.lcd_display_string("0:" + reply.decode(), 1, 0)
 					
 					joyOcc = reply.decode() == "/occ/"
 				except:
 					print("msg to socks[0] failed")
 			if upstairsChecked :
-				##mylcd.lcd_display_string("up", 1, 4)
+				#mylcd.lcd_display_string("up", 1, 4)
 				print("upstairsChecked")
 				try:
 					socks[1].sendall(msg.encode())
 					reply = socks[1].recv(4096)
 					print("socks[1] reply: " + reply.decode())
-					#mylcd.lcd_display_string("1:" + reply.decode(), 2, 0)
+					mylcd.lcd_display_string("1:" + reply.decode(), 2, 0)
 					upstairsOcc = reply.decode() == "/occ/"
 				except:
 					print("msg to socks[1] failed")
-			##mylcd.lcd_display_string(msg, 2, 0)
+			#mylcd.lcd_display_string(msg, 2, 0)
 			print(msg)
 
 		elif '/IP' in self.path :
@@ -158,8 +158,8 @@ class MyServer(BaseHTTPRequestHandler):
 
 		else :
 			print("Exeption: Bad URL")
-			##mylcd.lcd_display_string(lcdClearLine, 2, 0)
-			##mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
+			#mylcd.lcd_display_string(lcdClearLine, 2, 0)
+			#mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
 		print("REACHED")
 		if len(socks) == 0 :
 			print("def no socks")
@@ -187,13 +187,13 @@ if __name__ == '__main__':
 	print("Server Starts - %s:%s" % (host_name, host_port))
 
 	### LCD Setup
-	#mylcd = I2C_LCD_driver.lcd()
-	#mylcd.lcd_clear()
+	mylcd = I2C_LCD_driver.lcd()
+	mylcd.lcd_clear()
 
-	#mylcd.lcd_display_string("Server", 1, 0)
+	mylcd.lcd_display_string("Server", 1, 0)
 
 	print("'" + myIP + "'")
-	#mylcd.lcd_display_string(myIP, 2, 0)
+	mylcd.lcd_display_string(myIP, 2, 0)
 
 
 
