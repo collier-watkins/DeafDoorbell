@@ -70,6 +70,9 @@ class MyServer(BaseHTTPRequestHandler):
 		self.do_HEAD()
 		status = ''
 
+		joyOcc = False
+		upstairsOcc = False
+
 
 		if self.path=='/':
 			mylcd.lcd_display_string("*", 1, 15)
@@ -78,8 +81,7 @@ class MyServer(BaseHTTPRequestHandler):
 				html = self.openPage("getIP.html")
 				temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
 			else :
-				joyOcc = False
-				upstairsOcc = False
+				
 				try:
 					socks[0].sendall("occCheck".encode())
 					reply = socks[0].recv(4096)
@@ -94,18 +96,6 @@ class MyServer(BaseHTTPRequestHandler):
 				except:
 					print("sock[1] occ check failed")
 
-				if joyOcc and upstairsOcc :
-					html = self.openPage("indexBoth.html")
-					temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
-				elif joyOcc :
-					html = self.openPage("indexJoy.html")
-					temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
-				elif upstairsOcc :
-					html = self.openPage("indexUpstairs.html")
-					temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
-				else :
-					html = self.openPage("index.html")
-					temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
 		elif '/msg/' in self.path :
 			arr = self.path.split("/")
 			msg = arr[-1].replace("_", " ")
@@ -170,6 +160,18 @@ class MyServer(BaseHTTPRequestHandler):
 			#mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			#mylcd.lcd_display_string("Exp: Bad URL", 2, 0)
 
+		if joyOcc and upstairsOcc :
+			html = self.openPage("indexBoth.html")
+			temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
+		elif joyOcc :
+			html = self.openPage("indexJoy.html")
+			temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
+		elif upstairsOcc :
+			html = self.openPage("indexUpstairs.html")
+			temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
+		else :
+			html = self.openPage("index.html")
+			temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
 
 		self.wfile.write(html.format(temp[5:], status).encode("utf-8"))
 
