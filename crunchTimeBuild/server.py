@@ -142,7 +142,10 @@ if __name__ == '__main__':
 
 	##Socket Setup
 	for arg in sys.argv[1:] :
-		socks.append(setupSocket())
+		try:
+			socks.append(setupSocket())
+		except:
+			print("Client at that IP not ready")
 	i = 1
 	for s in socks :
 		s.connect((sys.argv[i], 8888))
