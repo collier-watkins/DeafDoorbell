@@ -65,9 +65,8 @@ if __name__ == "__main__":
 				print("Server (%s, %s) connected" % addr)
 				mylcd.lcd_clear()
 				mylcd.lcd_display_string("Server conn.", 1, 0)
-				if GPIO.input(4) == False :
-					mylcd.lcd_clear()
-					mylcd.backlight(0)
+				sleep(3)
+				mylcd.backlight(0)
 
 			else :
 				try:
