@@ -98,6 +98,7 @@ if __name__ == "__main__":
 								mylcd.lcd_clear()
 								mylcd.backlight(0)
 								GPIO.output(18,0)
+								sock.send("clicked".encode())
 								break
 
 
