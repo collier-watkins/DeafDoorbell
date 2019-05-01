@@ -104,7 +104,7 @@ class MyServer(BaseHTTPRequestHandler):
 			print(msg)
 
 		elif '/occCheck/' in self.path :
-
+			print("occCheck")
 
 		elif self.path=='/flavicon.ico':
 			print("flavicon.ico")
