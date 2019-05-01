@@ -1,4 +1,4 @@
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import os
 from time import sleep
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -11,7 +11,7 @@ import socket
 import fcntl
 import struct
 
-#import I2C_LCD_driver
+import I2C_LCD_driver
 
 from subprocess import check_output
 
