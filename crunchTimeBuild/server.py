@@ -81,21 +81,23 @@ class MyServer(BaseHTTPRequestHandler):
 			mylcd.lcd_display_string(lcdClearLine, 1, 0)
 			mylcd.lcd_display_string(lcdClearLine, 2, 0)
 			if joyChecked :
-				mylcd.lcd_display_string("joy", 1, 0)
+				#mylcd.lcd_display_string("joy", 1, 0)
 				print("joyChecked")
 				try:
 					socks[0].sendall(msg.encode())
 					reply = socks[0].recv(4096)
-					print("socks[0] reply: " + reply)
+					print("socks[0] reply: " + reply.decode())
+					mylcd.lcd_display_string("0:" + reply.decode(), 1, 0)
 				except:
 					print("msg to socks[0] failed")
 			if upstairsChecked :
-				mylcd.lcd_display_string("up", 1, 4)
+				#mylcd.lcd_display_string("up", 1, 4)
 				print("upstairsChecked")
 				try:
 					socks[1].sendall(msg.encode())
 					reply = socks[1].recv(4096)
-					print("socks[1] reply: " + reply)
+					print("socks[1] reply: " + reply.decode())
+					mylcd.lcd_display_string("1:" + reply.decode(), 2, 0)
 				except:
 					print("msg to socks[1] failed")
 			mylcd.lcd_display_string(msg, 2, 0)

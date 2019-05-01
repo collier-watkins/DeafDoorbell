@@ -76,10 +76,11 @@ if __name__ == "__main__":
 					data = sock.recv(RECV_BUFFER)
 					if data :
 						#Save data.deac
+						mylcd.lcd_clear()
 						response = "/occ/"
 						sock.send(response.encode())
 						print("Server Pi says:" + data.decode())
-						#mylcd.lcd_display_string("reply sent", 1, 1)
+						mylcd.lcd_display_string(data.decode(), 1, 0)
 				except:
 					broadcast_data(sock, "Client is offline")
 					print("Client is offline (printstatement)")
