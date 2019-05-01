@@ -44,7 +44,7 @@ if __name__ == "__main__":
 	while True :
 		if GPIO.input(4) == False :
 			mylcd.lcd_clear()
-			mylcd.backlight(0)
+			#mylcd.backlight(0)
 			break
 
 	CONNECTION_LIST = []
