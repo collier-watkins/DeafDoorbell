@@ -68,8 +68,9 @@ if __name__ == "__main__":
 			if sock == server_socket :	#If the connection is from ourselves
 				sockfd, addr = server_socket.accept()
 				CONNECTION_LIST.append(sockfd)
-				print("Client (%s, %s) connected" % addr)
-				mylcd.lcd_display_string("%", 1, 15)
+				print("Server (%s, %s) connected" % addr)
+				mylcd.lcd_clear()
+				mylcd.lcd_display_string("Server conn.", 1, 15)
 
 
 			else :
@@ -104,11 +105,11 @@ if __name__ == "__main__":
 
 				except:
 					#broadcast_data(sock, "Server is offline")
-					print("Server is offline (printstatement)")
+					print("Server is offline")
 					mylcd.backlight(0)
 					mylcd.lcd_clear()
 					mylcd.lcd_display_string("Server offline", 1, 0)
-					mylcd.lcd_display_string("Please Reboot", 2, 0)
+					#mylcd.lcd_display_string("Please Reboot", 2, 0)
 					sock.close()
 					CONNECTION_LIST.remove(sock)
 					continue

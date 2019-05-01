@@ -65,7 +65,7 @@ class MyServer(BaseHTTPRequestHandler):
 		""" do_GET() can be tested using curl command
 			'curl http://server-ip-address:port'
 		"""
-		html = self.openPage("index.html")
+		html = self.openPage("indexTEST.html")
 		temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
 		self.do_HEAD()
 		status = ''
@@ -102,6 +102,8 @@ class MyServer(BaseHTTPRequestHandler):
 					print("msg to socks[1] failed")
 			#mylcd.lcd_display_string(msg, 2, 0)
 			print(msg)
+
+		elif '/occCheck/' in self.path :
 
 
 		elif self.path=='/flavicon.ico':
