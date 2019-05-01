@@ -116,7 +116,7 @@ class MyServer(BaseHTTPRequestHandler):
 					print("socks[0] reply: " + reply.decode())
 					mylcd.lcd_display_string("0:" + reply.decode(), 1, 0)
 					
-					joyOcc = reply.decode == "/occ/"
+					joyOcc = reply.decode() == "/occ/"
 				except:
 					print("msg to socks[0] failed")
 			if upstairsChecked :
@@ -127,7 +127,7 @@ class MyServer(BaseHTTPRequestHandler):
 					reply = socks[1].recv(4096)
 					print("socks[1] reply: " + reply.decode())
 					mylcd.lcd_display_string("1:" + reply.decode(), 2, 0)
-					upstairsOcc = reply.decode == "/occ/"
+					upstairsOcc = reply.decode() == "/occ/"
 				except:
 					print("msg to socks[1] failed")
 			#mylcd.lcd_display_string(msg, 2, 0)
