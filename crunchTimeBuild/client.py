@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
 	CONNECTION_LIST = []
 	RECV_BUFFER = 4096	#4 kb
-	PORT = sys.argv[1]
+	PORT = int(sys.argv[1])
 
 	server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
