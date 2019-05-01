@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
 	print("Starting...")
 	print("Current Local IP: " + get_pi_ip_address('wlan0'))
-
+'''
 	mylcd.lcd_display_string("Tap btn to start", 1, 0)
 	mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
 
@@ -46,7 +46,7 @@ if __name__ == "__main__":
 			mylcd.lcd_clear()
 			#mylcd.backlight(0)
 			break
-
+'''
 	CONNECTION_LIST = []
 	RECV_BUFFER = 4096	#4 kb
 	PORT = 8888
@@ -62,7 +62,7 @@ if __name__ == "__main__":
 
 	mylcd.lcd_display_string("Ready for server", 1, 0)
 	mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
-	
+
 	while True :
 		#poll here
 		read_sockets,write_sockets,error_sockets = select.select(CONNECTION_LIST, [], [])
@@ -74,6 +74,9 @@ if __name__ == "__main__":
 				print("Server (%s, %s) connected" % addr)
 				mylcd.lcd_clear()
 				mylcd.lcd_display_string("Server conn.", 1, 0)
+				if GPIO.input(4) == False :
+					mylcd.lcd_clear()
+					mylcd.backlight(0)
 
 			else :
 				try:
