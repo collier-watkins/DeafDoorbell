@@ -61,7 +61,8 @@ if __name__ == "__main__":
 	print("Chat server has started on port " + str(PORT))
 
 	mylcd.lcd_display_string("Ready for server", 1, 0)
-
+	mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
+	
 	while True :
 		#poll here
 		read_sockets,write_sockets,error_sockets = select.select(CONNECTION_LIST, [], [])
