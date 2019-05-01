@@ -103,8 +103,11 @@ if __name__ == "__main__":
 
 
 				except:
-					broadcast_data(sock, "Client is offline")
-					print("Client is offline (printstatement)")
+					broadcast_data(sock, "Server is offline")
+					print("Server is offline (printstatement)")
+					mylcd.lcd_clear()
+					mylcd.lcd_display_string("Server offline", 1, 0)
+					mylcd.lcd_display_string("Please Reboot", 2, 0)
 					sock.close()
 					CONNECTION_LIST.remove(sock)
 					continue

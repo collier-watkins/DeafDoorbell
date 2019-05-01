@@ -100,7 +100,7 @@ class MyServer(BaseHTTPRequestHandler):
 					mylcd.lcd_display_string("1:" + reply.decode(), 2, 0)
 				except:
 					print("msg to socks[1] failed")
-			mylcd.lcd_display_string(msg, 2, 0)
+			#mylcd.lcd_display_string(msg, 2, 0)
 			print(msg)
 
 
