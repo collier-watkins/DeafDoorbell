@@ -85,6 +85,10 @@ class MyServer(BaseHTTPRequestHandler):
 			upstairsChecked = '/upstairsCheck/' in self.path
 			mylcd.lcd_display_string(lcdClearLine, 1, 0)
 			mylcd.lcd_display_string(lcdClearLine, 2, 0)
+
+			#joyOcc = False
+			#upstairsOcc = False
+
 			if joyChecked :
 				#mylcd.lcd_display_string("joy", 1, 0)
 				print("joyChecked")
@@ -93,6 +97,8 @@ class MyServer(BaseHTTPRequestHandler):
 					reply = socks[0].recv(4096)
 					print("socks[0] reply: " + reply.decode())
 					mylcd.lcd_display_string("0:" + reply.decode(), 1, 0)
+					
+					#joyOcc = reply.decode == "/occ/"
 				except:
 					print("msg to socks[0] failed")
 			if upstairsChecked :
@@ -103,10 +109,12 @@ class MyServer(BaseHTTPRequestHandler):
 					reply = socks[1].recv(4096)
 					print("socks[1] reply: " + reply.decode())
 					mylcd.lcd_display_string("1:" + reply.decode(), 2, 0)
+					#upstairsOcc = reply.decode == "/occ/"
 				except:
 					print("msg to socks[1] failed")
 			#mylcd.lcd_display_string(msg, 2, 0)
 			print(msg)
+			#if()
 
 		elif '/IP' in self.path :
 			arr = self.path.split("/")
