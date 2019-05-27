@@ -30,7 +30,7 @@ if __name__ == "__main__":
 	print("Starting...")
 	print("Current Local IP: " + get_pi_ip_address('wlan0'))
 
-	mylcd.lcd_display_string("Server", 1, 0)
+	mylcd.lcd_display_string("Client", 1, 0)
 	mylcd.lcd_display_string(get_pi_ip_address('wlan0'), 2, 0)
 
 
